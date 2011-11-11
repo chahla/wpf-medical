@@ -1,0 +1,27 @@
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\bin\Debug\Data.dll
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\bin\Debug\Data.pdb
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\bin\Debug\Dbo.dll
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\bin\Debug\Interfaces.dll
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\bin\Debug\Dbo.pdb
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\bin\Debug\Interfaces.pdb
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\obj\Debug\Data.dll
+C:\Documents and Settings\i2118dp\Mes documents\Visual Studio 2010\Projects\Wcf-Medical\Data\obj\Debug\Data.pdb
+G:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\ResolveAssemblyReference.cache
+G:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\Data.dll
+G:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\Data.pdb
+G:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Data.dll
+G:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Data.pdb
+G:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Dbo.dll
+G:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Interfaces.dll
+G:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Dbo.pdb
+G:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Interfaces.pdb
+M:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Data.dll
+M:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Data.pdb
+M:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Dbo.dll
+M:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Interfaces.dll
+M:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Dbo.pdb
+M:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Interfaces.pdb
+M:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\ResolveAssemblyReference.cache
+M:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\Data.dll
+M:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\Data.pdb
