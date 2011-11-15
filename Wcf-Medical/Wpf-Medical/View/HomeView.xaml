@@ -1,0 +1,19 @@
+﻿<Page x:Class="Wpf_Medical.View.HomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="700"
+	Title="Accueil">
+
+    <Grid>
+        <Label Content="Accueil" Height="39" HorizontalAlignment="Center" Margin="314,48,308,0" Name="labelTitle" VerticalAlignment="Top" FontSize="20" Width="78" FontFamily="Arial Unicode MS" />
+        <Label Content="Mettez votre curseur au dessus d'une rubrique pour avoir des informations" Height="44" HorizontalAlignment="Center" Margin="75,171,78,0" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" Width="547" Visibility="Visible" DataContext="{Binding}" FontFamily="Arial Unicode MS" />
+        
+        <Button Content="Patients" Height="32" HorizontalAlignment="Left" Margin="163,290,0,0" Name="buttonPatient" VerticalAlignment="Top" Width="164" Click="button1_Click" FontSize="14" />
+        <Button Content="Observation" Height="32" HorizontalAlignment="Left" Margin="163,354,0,0" Name="buttonObservation" VerticalAlignment="Top" Width="164" FontSize="14" />
+        <Button Content="Personnel Hospitalier" Height="32" HorizontalAlignment="Left" Margin="378,290,0,0" Name="buttonEmployees" VerticalAlignment="Top" Width="164" FontSize="14" />
+        <Button Content="Gestion des images" Height="32" HorizontalAlignment="Right" Margin="0,354,158,0" Name="buttonPicturemanager" VerticalAlignment="Top" Width="164" FontSize="14" />
+    </Grid>
+</Page>

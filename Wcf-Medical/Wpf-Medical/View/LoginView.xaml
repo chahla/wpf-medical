@@ -1,0 +1,22 @@
+﻿<Page x:Class="Wpf_Medical.View.FirstView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        mc:Ignorable="d" 
+        d:DesignHeight="640" d:DesignWidth="900"
+        Title="Identification">
+    <Grid>
+        <Label Content="Bienvenue dans le service de gestion de l'hôpital" Height="42" HorizontalAlignment="Left" Margin="244,94,0,0" Name="title" VerticalAlignment="Top" IsEnabled="True" FontFamily="Arial Unicode MS" FontSize="20" Width="448" FontWeight="Normal" />
+        <GroupBox Header="Connexion" Height="233" HorizontalAlignment="Left" Margin="244,160,0,0" Name="groupBoxConnection" VerticalAlignment="Top" Width="448">
+            <Grid Width="431">
+                <Label Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="67,33,0,0" Name="labelLogin" VerticalAlignment="Top" FontSize="14" />
+                <TextBox Height="23" HorizontalAlignment="Right" Margin="0,38,95,0" Name="textBoxLogin" VerticalAlignment="Top" Width="120" />
+                <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="67,79,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="215,84,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="121" />
+                <Button Content="Se connecter" Height="29" HorizontalAlignment="Left" Margin="158,167,0,0" Name="buttonConnection" VerticalAlignment="Top" Width="114" FontWeight="Bold" />
+            </Grid>
+        </GroupBox>
+        <Button Content="Créer son compte utilisateur" Height="48" HorizontalAlignment="Left" Margin="244,456,0,0" Name="buttonCreateuser" VerticalAlignment="Top" Width="448" FontSize="20" />
+    </Grid>
+</Page>

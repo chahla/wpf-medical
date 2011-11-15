@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Wpf-Medical\App.xaml
-1-1739598540
+10-2025083265
 
-9-1589758060
+181808409733
 12-1381780322
-View\FirstView.xaml;
+View\CreateUserSuccessView.xaml;View\CreateUserView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\MemberBrowserView.xaml;View\ObservationTableView.xaml;View\PatientBrowserView.xaml;View\PatientPictureView.xaml;View\PictureManager1View.xaml;View\PictureManager2View.xaml;
 
 False
 
