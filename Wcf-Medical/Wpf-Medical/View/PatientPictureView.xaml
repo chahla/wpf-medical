@@ -8,6 +8,12 @@
 	Title="PatientPictureView">
 
     <Grid>
-        
+        <Label Content="Images du patient" Height="41" HorizontalAlignment="Left" Margin="12,12,0,0" Name="labelTitle" VerticalAlignment="Top" Width="355" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Unicode MS" />
+        <Label Content="Label" Height="41" HorizontalAlignment="Left" Margin="373,12,0,0" Name="labelPatientname" VerticalAlignment="Top" Width="315" FontSize="20" FontFamily="Arial Unicode MS" HorizontalContentAlignment="Center" />
+        <ScrollViewer Height="288" HorizontalAlignment="Left" Margin="12,87,0,0" Name="scrollViewer1" VerticalAlignment="Top" Width="676" />
+               
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Ajouter une image" Height="41" Name="button1" Width="162" FontSize="16" FontFamily="Arial Unicode MS" Margin="269,416,269,242" />
+        </StackPanel>
     </Grid>
 </Page>

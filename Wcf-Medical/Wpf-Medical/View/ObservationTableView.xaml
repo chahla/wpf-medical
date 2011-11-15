@@ -8,6 +8,14 @@
 	Title="ObservationTableView">
 
     <Grid>
-        
+        <Label Content="Observations" Height="35" HorizontalAlignment="Center" Name="label1" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="138" Margin="20" />
+        <DataGrid Height="267" HorizontalAlignment="Left" Margin="12,77,0,0" Name="grid1" VerticalAlignment="Top" Width="407">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="110" Binding="{Binding Name}" Header="Patient"></DataGridTextColumn>
+                <DataGridTextColumn Width="98" Binding="{Binding Data}" Header="Date"></DataGridTextColumn>
+                <DataGridTextColumn Width="90" Binding="{Binding Poids}" Header="Poids"></DataGridTextColumn>
+                <DataGridTextColumn Width="110" Binding="{Binding PressionSanguine}" Header="Pression Sanguine"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
