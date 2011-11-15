@@ -8,6 +8,9 @@
 	Title="Gestion des images">
 
     <Grid>
-        
+        <Label Content="Gestion des images" Height="36" HorizontalAlignment="Left" Margin="261,45,0,0" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />
+
+        <Button Content="Personnel hospitalier" Height="28" HorizontalAlignment="Left" Margin="279,153,0,0" Name="buttonEmployees" VerticalAlignment="Top" Width="153" FontFamily="Arial Unicode MS" FontSize="14" />
+        <Button Content="Observations" Height="28" HorizontalAlignment="Left" Margin="279,219,0,0" Name="buttonObservations" VerticalAlignment="Top" Width="152" FontFamily="Arial Unicode MS" FontSize="14" />
     </Grid>
 </Page>

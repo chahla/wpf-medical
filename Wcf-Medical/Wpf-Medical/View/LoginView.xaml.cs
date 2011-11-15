@@ -16,9 +16,9 @@ namespace Wpf_Medical.View
     /// <summary>
     /// Interaction logic for FirstWindow.xaml
     /// </summary>
-    public partial class FirstView : Window
+    public partial class LoginView : Page
     {
-        public FirstView()
+        public LoginView()
         {
             InitializeComponent();
         }

@@ -25,3 +25,12 @@ M:\EPITA\wpf\Wcf-Medical\Data\bin\Debug\Interfaces.pdb
 M:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\ResolveAssemblyReference.cache
 M:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\Data.dll
 M:\EPITA\wpf\Wcf-Medical\Data\obj\Debug\Data.pdb
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\bin\Debug\Data.dll
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\bin\Debug\Data.pdb
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\bin\Debug\Dbo.dll
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\bin\Debug\Interfaces.dll
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\bin\Debug\Dbo.pdb
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\bin\Debug\Interfaces.pdb
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\obj\Debug\ResolveAssemblyReference.cache
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\obj\Debug\Data.dll
+D:\Epita\MTI\WPF\projet\git\wpf-medical\Wcf-Medical\Data\obj\Debug\Data.pdb

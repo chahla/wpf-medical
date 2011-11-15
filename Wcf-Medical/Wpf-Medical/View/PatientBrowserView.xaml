@@ -8,6 +8,44 @@
 	Title="PatientBrowserView">
 
     <Grid>
+        <Label Content="Rechercher un client" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
+        <Label Content="Entrer son nom ou prénom" Height="28" HorizontalAlignment="Left" Margin="12,46,0,0" Name="labelSubtitle" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="17,80,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" />
+        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="160,79,0,0" Name="button1" VerticalAlignment="Top" Width="54" />
+
+        <GroupBox Header="Sélection Patient" Height="354" HorizontalAlignment="Left" Margin="17,122,0,0" Name="groupBoxPatientselect" VerticalAlignment="Top" Width="197">
+            <Grid>
+                <Button Content="Ajouter un patient" Height="30" Margin="6,6,6,295" Name="button2" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" />
+                <ListBox Margin="7,42,6,6" Name="listBox1" />
+            </Grid>
+        </GroupBox>
         
+        <GroupBox Header="Gestion Patient" Height="426" HorizontalAlignment="Left" Margin="286,50,0,0" Name="groupBoxPatientmanager" VerticalAlignment="Top" Width="402">
+            <Grid>
+                <Label Content="Nom" Height="28" HorizontalAlignment="Left" Margin="6,9,0,0" Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="6,43,0,0" Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                <Label Content="Date de naissance" Height="28" HorizontalAlignment="Left" Margin="6,77,0,0" Name="labelBirthdate" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                
+                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="168,11,0,0" Name="labelNamesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="168,45,0,0" Name="labelSurnamesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="168,79,0,0" Name="labelBirthdatesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                
+                <Button Content="Supprimer ce profil" Height="29" HorizontalAlignment="Left" Margin="275,79,0,0" Name="buttonDeleteprofile" VerticalAlignment="Top" Width="109" FontFamily="Arial Unicode MS" FontWeight="Normal" />
+                
+                <Separator Height="23" HorizontalAlignment="Left" Margin="6,114,0,0" Name="separator1" VerticalAlignment="Top" Width="378" />
+                
+                <Label Content="Date" Height="28" HorizontalAlignment="Left" Margin="6,143,0,0" Name="labelDate" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="94,144,0,0" Name="labelDatesend" VerticalAlignment="Top" />
+                
+                <Button Content="Ajouter une observation" Height="28" HorizontalAlignment="Left" Margin="249,143,0,0" Name="buttonAddobservation" VerticalAlignment="Top" Width="135" FontFamily="Arial Unicode MS" />
+                
+                <Label Content="Commentaire" Height="28" HorizontalAlignment="Left" Margin="6,177,0,0" Name="label1" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                <TextBox Height="58" HorizontalAlignment="Left" Margin="168,179,0,0" Name="textBox2" VerticalAlignment="Top" Width="216" />
+                <Label Content="Prescription" Height="28" HorizontalAlignment="Left" Margin="6,248,0,0" Name="label2" VerticalAlignment="Top" Width="82" FontFamily="Arial Unicode MS" />
+                <TextBox Height="58" HorizontalAlignment="Left" Margin="168,250,0,0" Name="textBox3" VerticalAlignment="Top" Width="216" />
+                
+                <Button Content="Voir les images (Radios/Graphiques)" Height="34" HorizontalAlignment="Left" Margin="78,327,0,0" Name="button3" VerticalAlignment="Top" Width="241" FontFamily="Arial Unicode MS" FontSize="14" />
+            </Grid>
+        </GroupBox>
     </Grid>
 </Page>

@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Wpf_Medical.ViewModel
 {
-    public class FirstViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         #region Commandes
         public ICommand ClickCommand { get; set; }
@@ -16,7 +16,7 @@ namespace Wpf_Medical.ViewModel
         /// <summary>
         /// constructeur
         /// </summary>
-        public FirstViewModel()
+        public LoginViewModel()
         {
             ClickCommand = new RelayCommand(param => Click(), param => true);
         }

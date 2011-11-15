@@ -8,6 +8,10 @@
 	Title="PictureManager2View">
 
     <Grid>
+        <Label Content="Gestion des images" Height="37" HorizontalAlignment="Left" Margin="260,48,0,0" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />
+        <ListBox Height="208" HorizontalAlignment="Left" Margin="169,120,0,0" Name="listBoxEmployees" VerticalAlignment="Top" Width="150" />
+        <Image Height="150" HorizontalAlignment="Left" Margin="393,120,0,0" Name="imageEmployee" Stretch="Fill" VerticalAlignment="Top" Width="187" />
         
+        <Button Content="Changer l'image" Height="33" HorizontalAlignment="Left" Margin="299,383,0,0" Name="buttonUpdatepicture" VerticalAlignment="Top" Width="115" FontSize="14" FontFamily="Arial Unicode MS" />
     </Grid>
 </Page>

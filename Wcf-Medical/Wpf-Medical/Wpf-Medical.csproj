@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F25AB703-F06F-460C-AC40-A69A7143E735}</ProjectGuid>
+    <ProjectGuid>{09AAD888-7EFB-46C1-9C05-228BB8233041}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Wpf_Medical</RootNamespace>
-    <AssemblyName>Wpf_Medical</AssemblyName>
+    <AssemblyName>Wpf-Medical</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -62,8 +62,35 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\FirstViewModel.cs" />
-    <Compile Include="View\FirstView.xaml.cs">
-      <DependentUpon>FirstView.xaml</DependentUpon>
+    <Compile Include="View\CreateUserSuccessView.xaml.cs">
+      <DependentUpon>CreateUserSuccessView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateUserView.xaml.cs">
+      <DependentUpon>CreateUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemberBrowserView.xaml.cs">
+      <DependentUpon>MemberBrowserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ObservationTableView.xaml.cs">
+      <DependentUpon>ObservationTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientBrowserView.xaml.cs">
+      <DependentUpon>PatientBrowserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientPictureView.xaml.cs">
+      <DependentUpon>PatientPictureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PictureManager1View.xaml.cs">
+      <DependentUpon>PictureManager1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PictureManager2View.xaml.cs">
+      <DependentUpon>PictureManager2View.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +121,43 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\FirstView.xaml">
+    <Page Include="View\CreateUserSuccessView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MemberBrowserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ObservationTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientBrowserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientPictureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PictureManager1View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PictureManager2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
