@@ -6,12 +6,33 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="MemberBrowserView">
+    <Page.Resources>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
+        
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="Foreground" Value="RoyalBlue" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style x:Key="element" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="DarkSlateGray" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Heavy" />
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
             <StackPanel Orientation="Vertical">
-                <Label Content="Rechercher un membre" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
-                <Label Content="Entrer son nom ou son prénom" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelSubtitle" VerticalAlignment="Top" />
+                <Label Style="{StaticResource Title}" Content="Rechercher un membre" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
+                <Label Style="{StaticResource Subtitle}" Content="Entrer son nom ou son prénom" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelSubtitle" VerticalAlignment="Top" />
                 
                 <StackPanel Orientation="Horizontal">
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="10,0,10,0" Name="textBoxSearch" VerticalAlignment="Top" Width="120" />
@@ -31,10 +52,10 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         
                         <StackPanel Orientation="Vertical" Margin="10">
-                        <Label Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                        <Label Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                        <Label Content="Fonction" Height="28" HorizontalAlignment="Left"  Name="labelFunction" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                        <Label Content="Connecté" Height="28" HorizontalAlignment="Left"  Name="labelConnected" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        <Label Style="{StaticResource element}" Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        <Label Style="{StaticResource element}" Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        <Label Style="{StaticResource element}" Content="Fonction" Height="28" HorizontalAlignment="Left"  Name="labelFunction" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        <Label Style="{StaticResource element}" Content="Connecté" Height="28" HorizontalAlignment="Left"  Name="labelConnected" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
                         </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10">

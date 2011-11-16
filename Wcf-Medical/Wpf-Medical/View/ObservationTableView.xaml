@@ -7,6 +7,16 @@
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="ObservationTableView">
     <Page.Resources>
+
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
+
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+
         <!-- DataGrid style -->
         <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
             <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}"/>
@@ -25,7 +35,7 @@
         <Style x:Key="ColumnHeaderStyle1" TargetType="DataGridColumnHeader">
             <Setter Property="Height" Value="25"/>
             <Setter Property="Padding" Value="35,0,0,0" />
-            <Setter Property="Background" Value="Wheat" />
+            <Setter Property="Background" Value="WhiteSmoke" />
             <Setter Property="Foreground" Value="SlateGray" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="MaxWidth" Value="150" />
@@ -38,7 +48,7 @@
     </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label Content="Observations" Height="35" HorizontalAlignment="Center" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="138" Margin="20" />
+            <Label Style="{StaticResource Title}" Content="Observations" Height="35" HorizontalAlignment="Center" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="138" Margin="20" />
             <DataGrid Style="{StaticResource DataGridStyle1}" Height="267" HorizontalAlignment="Center" Margin="20" Name="gridPatients" VerticalAlignment="Top" Width="530">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="130" Binding="{Binding Name}" Header="Patient"></DataGridTextColumn>
