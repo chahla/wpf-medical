@@ -5,35 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
-	Title="MemberBrowserView">
+	Title="MemberBrowserView" Loaded="Page_Loaded">
 
     <Grid>
-        <Label Content="Rechercher un membre" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
-        <Label Content="Entrer son nom ou son prénom" Height="28" HorizontalAlignment="Left" Margin="12,46,0,0" Name="labelSubtitle" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="17,80,0,0" Name="textBoxSearch" VerticalAlignment="Top" Width="120" />
-        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="160,80,0,0" Name="buttonSearch" VerticalAlignment="Top" Width="54" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Rechercher un membre" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
+                <Label Content="Entrer son nom ou son prénom" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelSubtitle" VerticalAlignment="Top" />
+                
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <TextBox Height="23" HorizontalAlignment="Left" Name="textBoxSearch" VerticalAlignment="Top" Width="120" />
+                    <Button Content="OK" Height="23" HorizontalAlignment="Left" Name="buttonSearch" VerticalAlignment="Top" Width="54" />
+                </StackPanel>
+                
+                <GroupBox Header="Sélection Membre" Margin="10,0,0,0" Height="401" HorizontalAlignment="Left" Name="groupBoxMemberselect" VerticalAlignment="Top" Width="197">
+                    <Grid>
+                        <ListBox Margin="6,6,7,6" Name="listBoxMembre" />
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <GroupBox Header="Gestion Membre" Margin="0,15,0,0" Height="505" HorizontalAlignment="Left" Name="groupBoxMember" VerticalAlignment="Top" Width="420">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        
+                        <StackPanel Orientation="Vertical" Margin="10">
+                        <Label Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        <Label Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        <Label Content="Fonction" Height="28" HorizontalAlignment="Left"  Name="labelFunction" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        <Label Content="Connecté" Height="28" HorizontalAlignment="Left"  Name="labelConnected" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                        </StackPanel>
 
-        <GroupBox Header="Sélection Membre" Height="401" HorizontalAlignment="Left" Margin="17,122,0,0" Name="groupBoxMemberselect" VerticalAlignment="Top" Width="197">
-            <Grid>
-                <ListBox Margin="6,6,7,6" Name="listBoxMembre" />
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="Gestion Membre" Height="473" HorizontalAlignment="Left" Margin="268,50,0,0" Name="groupBoxMember" VerticalAlignment="Top" Width="420">
-            <Grid>
-                <Label Content="Nom" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="6,40,0,0" Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                
-                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="107,11,0,0" Name="labelNamesend" VerticalAlignment="Top" />
-                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="107,42,0,0" Name="labelSurnamesend" VerticalAlignment="Top" />
+                            <StackPanel Orientation="Vertical" Margin="10">
+                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelNamesend" VerticalAlignment="Top" />
+                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelSurnamesend" VerticalAlignment="Top" />                                                       
+                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelFunctionsend" VerticalAlignment="Top" />
+                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelConnectedsend" VerticalAlignment="Top" />
+                        </StackPanel>
 
-                <Label Content="Fonction" Height="28" HorizontalAlignment="Left" Margin="6,131,0,0" Name="labelFunction" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                <Label Content="Connecté" Height="28" HorizontalAlignment="Left" Margin="6,165,0,0" Name="labelConnected" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                
-                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="107,131,0,0" Name="labelFunctionsend" VerticalAlignment="Top" />
-                <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="107,167,0,0" Name="labelConnectedsend" VerticalAlignment="Top" />
-                
-                <Image Height="180" HorizontalAlignment="Left" Margin="220,13,0,0" Name="imageMember" Stretch="Fill" VerticalAlignment="Top" Width="182" />
-            </Grid>
-        </GroupBox>
+                            <Image Margin="10" Height="180" HorizontalAlignment="Left" Name="imageMember" Stretch="Fill" VerticalAlignment="Top" Width="182" />
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
