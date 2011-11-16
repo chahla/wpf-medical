@@ -26,6 +26,11 @@
         <Style TargetType="Label">
             <Setter Property="FontWeight" Value="Heavy" />
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Foreground" Value="DarkOliveGreen" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
     </Page.Resources>
 
     <Grid>
