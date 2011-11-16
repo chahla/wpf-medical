@@ -6,16 +6,45 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="ObservationTableView">
+    <Page.Resources>
+        <!-- DataGrid style -->
+        <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}"/>
+            <Setter Property="RowStyle" Value="{DynamicResource CellMouseOver}"/>
+        </Style>
 
+        <Style x:Key="CellMouseOver" TargetType="DataGridRow">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Lightblue" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- DataGridColumnHeader style -->
+        <Style x:Key="ColumnHeaderStyle1" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Padding" Value="35,0,0,0" />
+            <Setter Property="Background" Value="Wheat" />
+            <Setter Property="Foreground" Value="SlateGray" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="MaxWidth" Value="150" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" Value="Click to sort."/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label Content="Observations" Height="35" HorizontalAlignment="Center" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="138" Margin="20" />
-            <DataGrid Height="267" HorizontalAlignment="Center" Margin="20" Name="gridPatients" VerticalAlignment="Top" Width="407">
+            <DataGrid Style="{StaticResource DataGridStyle1}" Height="267" HorizontalAlignment="Center" Margin="20" Name="gridPatients" VerticalAlignment="Top" Width="530">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="110" Binding="{Binding Name}" Header="Patient"></DataGridTextColumn>
-                    <DataGridTextColumn Width="98" Binding="{Binding Data}" Header="Date"></DataGridTextColumn>
-                    <DataGridTextColumn Width="90" Binding="{Binding Poids}" Header="Poids"></DataGridTextColumn>
-                    <DataGridTextColumn Width="110" Binding="{Binding PressionSanguine}" Header="Pression Sanguine"></DataGridTextColumn>
+                    <DataGridTextColumn Width="130" Binding="{Binding Name}" Header="Patient"></DataGridTextColumn>
+                    <DataGridTextColumn Width="130" Binding="{Binding Data}" Header="Date"></DataGridTextColumn>
+                    <DataGridTextColumn Width="120" Binding="{Binding Poids}" Header="Poids"></DataGridTextColumn>
+                    <DataGridTextColumn Width="150" Binding="{Binding PressionSanguine}" Header="Pression Sanguine"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
