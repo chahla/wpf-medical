@@ -8,12 +8,20 @@
 	Title="Accueil">
 
     <Grid>
-        <Label Content="Accueil" Height="39" HorizontalAlignment="Center" Margin="314,48,308,0" Name="labelTitle" VerticalAlignment="Top" FontSize="20" Width="78" FontFamily="Arial Unicode MS" />
-        <Label Content="Mettez votre curseur au dessus d'une rubrique pour avoir des informations" Height="44" HorizontalAlignment="Center" Margin="75,171,78,0" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" Width="547" Visibility="Visible" DataContext="{Binding}" FontFamily="Arial Unicode MS" />
-        
-        <Button Content="Patients" Height="32" HorizontalAlignment="Left" Margin="163,290,0,0" Name="buttonPatient" VerticalAlignment="Top" Width="164" FontSize="14" />
-        <Button Content="Observation" Height="32" HorizontalAlignment="Left" Margin="163,354,0,0" Name="buttonObservation" VerticalAlignment="Top" Width="164" FontSize="14" />
-        <Button Content="Personnel Hospitalier" Height="32" HorizontalAlignment="Left" Margin="378,290,0,0" Name="buttonEmployees" VerticalAlignment="Top" Width="164" FontSize="14" />
-        <Button Content="Gestion des images" Height="32" HorizontalAlignment="Right" Margin="0,354,158,0" Name="buttonPicturemanager" VerticalAlignment="Top" Width="164" FontSize="14" />
+        <StackPanel HorizontalAlignment="Center" Margin="10">
+            <Label Content="Accueil" Height="39" HorizontalAlignment="Center" Name="labelTitle" VerticalAlignment="Top" FontSize="20" Width="78" FontFamily="Arial Unicode MS" />
+            <Label Content="Mettez votre curseur au dessus d'une rubrique pour avoir des informations" Height="44" HorizontalAlignment="Center" Margin="20" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" Width="547" Visibility="Visible" DataContext="{Binding}" FontFamily="Arial Unicode MS" />
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button Content="Patients" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonPatient" VerticalAlignment="Top" Width="164" FontSize="14" />
+                <Button Content="Observation" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonObservation" VerticalAlignment="Top" Width="164" FontSize="14" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button Content="Personnel Hospitalier" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonEmployees" VerticalAlignment="Top" Width="164" FontSize="14" />
+                <Button Content="Gestion des images" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonPicturemanager" VerticalAlignment="Top" Width="164" FontSize="14" />
+            </StackPanel>
+            
+        </StackPanel>
     </Grid>
 </Page>

@@ -8,24 +8,35 @@
 	Title="Inscription Utilisateur">
 
     <Grid>
-        <Label Content="Création de compte utilisateur" Height="39" HorizontalAlignment="Left" Margin="219,63,0,0" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="284" />
-        <Label Content="Remplissez tous les champs du formulaire" Height="28" HorizontalAlignment="Left" Margin="203,119,0,0" Name="labelSubtitle" VerticalAlignment="Top" Width="315" FontSize="16" FontFamily="Arial Unicode MS" />
-        <GroupBox Header="Création Utilisateur" Height="426" HorizontalAlignment="Left" Margin="12,191,0,0" Name="groupBoxForm" VerticalAlignment="Top" Width="676">
-            <Grid>
-                <Label Content="Nom" Height="28" HorizontalAlignment="Left" Margin="126,34,0,0" Name="labelName" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="126,68,0,0" Name="labelSurname" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="126,102,0,0" Name="labelPassword" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                <Label Content="Confirmer votre mot de passe" Height="28" HorizontalAlignment="Left" Margin="126,136,0,0" Name="labelPasswordconfirmation" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                <Label Content="Fonction" Height="28" HorizontalAlignment="Left" Margin="126,170,0,0" Name="labelFunction" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                
-                <TextBox Height="23" HorizontalAlignment="Left" Margin="313,39,0,0" Name="textBoxName" VerticalAlignment="Top" Width="120" />
-                <TextBox Height="23" HorizontalAlignment="Left" Margin="313,70,0,0" Name="textBoxSurname" VerticalAlignment="Top" Width="120" />
-                <TextBox Height="23" HorizontalAlignment="Left" Margin="313,104,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="120" />
-                <TextBox Height="23" HorizontalAlignment="Left" Margin="313,138,0,0" Name="textBoxPasswordConfirmation" VerticalAlignment="Top" Width="120" />
-                <ComboBox Height="23" HorizontalAlignment="Left" Margin="313,170,0,0" Name="comboBoxFunction" VerticalAlignment="Top" Width="120" />
-                
-                <Button Content="Ajouter un utilisateur" Height="29" HorizontalAlignment="Left" Margin="229,286,0,0" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
-            </Grid>
-        </GroupBox>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+            <Label Content="Création de compte utilisateur" Height="39" HorizontalAlignment="Center" Margin="20" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="284" />
+            <Label Content="Remplissez tous les champs du formulaire" Height="28" HorizontalAlignment="Center" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" Width="315" FontSize="16" FontFamily="Arial Unicode MS" />
+            <GroupBox Header="Création Utilisateur" Height="426" HorizontalAlignment="Center" Margin="10" Name="groupBoxForm" VerticalAlignment="Top" Width="676">
+                <Grid>
+                     <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="60" HorizontalAlignment="Center">
+                            
+                            <StackPanel Orientation="Vertical">
+                                <Label Content="Nom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelName" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelSurname" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPassword" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Content="Confirmer votre mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPasswordconfirmation" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Content="Fonction" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelFunction" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical">
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxName" VerticalAlignment="Top" Width="120" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxSurname" VerticalAlignment="Top" Width="120" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPassword" VerticalAlignment="Top" Width="120" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPasswordConfirmation" VerticalAlignment="Top" Width="120" />
+                                <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="comboBoxFunction" VerticalAlignment="Top" Width="120" />
+                            </StackPanel>
+                        
+                        </StackPanel>
+                        <Button Content="Ajouter un utilisateur" Margin="50" Height="29" HorizontalAlignment="Center" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
     </Grid>
 </Page>

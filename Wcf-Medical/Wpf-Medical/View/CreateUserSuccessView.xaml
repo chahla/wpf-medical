@@ -8,24 +8,40 @@
 	Title="Inscription utilisateur réussie">
 
     <Grid>
-        <Label Content="Inscription réussie" Height="37" HorizontalAlignment="Left" Margin="266,43,0,0" Name="labelTitle" VerticalAlignment="Top" FontFamily="Arial Unicode MS" FontSize="20" />
-        <Label Content="Voici un rappel des informations que vous avez renseignées :" Height="30" HorizontalAlignment="Left" Margin="136,102,0,0" Name="label1" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
-        
-        <Label Content="Nom" Height="28" HorizontalAlignment="Left" Margin="266,155,0,0" Name="labelName" VerticalAlignment="Top" FontSize="14" />
-        <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="266,189,0,0" Name="labelSurname" VerticalAlignment="Top" FontSize="14" />
-        <Label Content="Fonction" Height="28" HorizontalAlignment="Left" Margin="266,223,0,0" Name="labelFunction" VerticalAlignment="Top" FontSize="14" />
-        
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="396,155,0,0" Name="labelNamesend" VerticalAlignment="Top" />
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="396,189,0,0" Name="labelSurnamesend" VerticalAlignment="Top" />
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="396,223,0,0" Name="labelFunctionsend" VerticalAlignment="Top" />
+        <StackPanel Orientation="Vertical">
+            <Label Content="Inscription réussie" Height="37" HorizontalAlignment="Center" Margin="30" Name="labelTitle" VerticalAlignment="Top" FontFamily="Arial Unicode MS" FontSize="20" />
+            <Label Content="Voici un rappel des informations que vous avez renseignées :" Height="30" HorizontalAlignment="Center" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
 
-        <Label Content="Retenez les informations suivantes car elles vous permettront de vous connecter" Height="28" HorizontalAlignment="Left" Margin="72,284,0,0" Name="label2" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
-        
-        <Label Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="266,361,0,0" Name="labelLogin" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Normal" />
-        <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="266,395,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-        
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="396,361,0,0" Name="labelLoginsend" VerticalAlignment="Top" />
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="396,0,0,277" Name="labelPasswordsend" VerticalAlignment="Bottom" />
-        <Button Content="Connectez vous avec votre compte" Height="33" HorizontalAlignment="Left" Margin="227,482,0,0" Name="buttonConnection" VerticalAlignment="Top" Width="271" FontSize="14" FontWeight="Bold" FontFamily="Arial Unicode MS" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Nom" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelName" VerticalAlignment="Top" FontSize="14" />
+                    <Label Content="Prénom" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelSurname" VerticalAlignment="Top" FontSize="14" />
+                    <Label Content="Fonction" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelFunction" VerticalAlignment="Top" FontSize="14" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelNamesend" VerticalAlignment="Top" />
+                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelSurnamesend" VerticalAlignment="Top" />
+                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelFunctionsend" VerticalAlignment="Top" />
+                </StackPanel>
+            </StackPanel>
+
+            <Label Content="Retenez les informations suivantes car elles vous permettront de vous connecter" Height="28" HorizontalAlignment="Center" Margin="10" Name="label2" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="10" Name="labelLogin" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Normal" />
+                    <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="10"  Name="labelPassword" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left"  Name="labelLoginsend" VerticalAlignment="Top" />
+                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left"  Name="labelPasswordsend" VerticalAlignment="Bottom" />
+                </StackPanel>
+                
+            </StackPanel>
+            <Button Content="Connectez vous avec votre compte" Height="33" HorizontalAlignment="Center" Margin="40"  Name="buttonConnection" VerticalAlignment="Top" Width="271" FontSize="14" FontWeight="Bold" FontFamily="Arial Unicode MS" />
+        </StackPanel>
     </Grid>
 </Page>
