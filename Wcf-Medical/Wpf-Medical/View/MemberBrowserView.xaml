@@ -13,9 +13,9 @@
                 <Label Content="Rechercher un membre" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
                 <Label Content="Entrer son nom ou son prénom" Margin="10" Height="28" HorizontalAlignment="Left" Name="labelSubtitle" VerticalAlignment="Top" />
                 
-                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
-                    <TextBox Height="23" HorizontalAlignment="Left" Name="textBoxSearch" VerticalAlignment="Top" Width="120" />
-                    <Button Content="OK" Height="23" HorizontalAlignment="Left" Name="buttonSearch" VerticalAlignment="Top" Width="54" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="10,0,10,0" Name="textBoxSearch" VerticalAlignment="Top" Width="120" />
+                    <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="10,0,10,0" Name="buttonSearch" VerticalAlignment="Top" Width="54" />
                 </StackPanel>
                 
                 <GroupBox Header="Sélection Membre" Margin="10,0,0,0" Height="401" HorizontalAlignment="Left" Name="groupBoxMemberselect" VerticalAlignment="Top" Width="197">
