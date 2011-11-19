@@ -20,9 +20,9 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelNamesend" VerticalAlignment="Top" />
-                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelSurnamesend" VerticalAlignment="Top" />
-                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelFunctionsend" VerticalAlignment="Top" />
+                    <Label Content="{Binding Name, Mode=TwoWay}" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelNamesend" VerticalAlignment="Top" />
+                    <Label Content="{Binding Firstname, Mode=TwoWay}" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelSurnamesend" VerticalAlignment="Top" />
+                    <Label Content="{Binding Role, Mode=TwoWay}" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelFunctionsend" VerticalAlignment="Top" />
                 </StackPanel>
             </StackPanel>
 
@@ -36,12 +36,12 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left"  Name="labelLoginsend" VerticalAlignment="Top" />
-                    <Label Content="Label" Height="28" Margin="10" HorizontalAlignment="Left"  Name="labelPasswordsend" VerticalAlignment="Bottom" />
+                    <Label Content="{Binding Login, Mode=TwoWay}" Height="28" Margin="10" HorizontalAlignment="Left"  Name="labelLoginsend" VerticalAlignment="Top" />
+                    <Label Content="{Binding Password, Mode=TwoWay}" Height="28" Margin="10" HorizontalAlignment="Left"  Name="labelPasswordsend" VerticalAlignment="Bottom" />
                 </StackPanel>
                 
             </StackPanel>
-            <Button Content="Connectez vous avec votre compte" Height="33" HorizontalAlignment="Center" Margin="40"  Name="buttonConnection" VerticalAlignment="Top" Width="271" FontSize="14" FontWeight="Bold" FontFamily="Arial Unicode MS" />
+            <Button Command="{Binding LoginCommand}" Content="Connectez vous avec votre compte" Height="33" HorizontalAlignment="Center" Margin="40"  Name="buttonConnection" VerticalAlignment="Top" Width="271" FontSize="14" FontWeight="Bold" FontFamily="Arial Unicode MS" />
         </StackPanel>
     </Grid>
 </Page>

@@ -19,21 +19,23 @@
                             <StackPanel Orientation="Vertical">
                                 <Label Content="Nom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelName" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
                                 <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelSurname" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelLogin" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
                                 <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPassword" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
                                 <Label Content="Confirmer votre mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPasswordconfirmation" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
                                 <Label Content="Fonction" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelFunction" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical">
-                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxName" VerticalAlignment="Top" Width="120" />
-                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxSurname" VerticalAlignment="Top" Width="120" />
-                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPassword" VerticalAlignment="Top" Width="120" />
-                                <TextBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPasswordConfirmation" VerticalAlignment="Top" Width="120" />
-                                <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="comboBoxFunction" VerticalAlignment="Top" Width="120" />
+                                <TextBox Text="{Binding Name, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxName" VerticalAlignment="Top" Width="120" />
+                                <TextBox Text="{Binding Firstname, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxFirstname" VerticalAlignment="Top" Width="120" />
+                                <TextBox Text="{Binding Login, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxLogin" VerticalAlignment="Top" Width="120" />
+                                <TextBox Text="{Binding Password, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPassword" VerticalAlignment="Top" Width="120" />
+                                <TextBox Text="{Binding ConfirmPassword, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPasswordConfirmation" VerticalAlignment="Top" Width="120" />
+                                <ComboBox ItemsSource="{Binding AvailableRoleList}" SelectedValue="{Binding Role, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="comboBoxFunction" VerticalAlignment="Top" Width="120" />
                             </StackPanel>
                         
                         </StackPanel>
-                        <Button Content="Valider l'inscription" Margin="50" Height="29" HorizontalAlignment="Center" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
+                        <Button Content="Valider l'inscription" Command="{Binding CreateCommand}" Margin="50" Height="29" HorizontalAlignment="Center" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
                     </StackPanel>
                 </Grid>
             </GroupBox>

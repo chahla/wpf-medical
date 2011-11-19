@@ -60,6 +60,7 @@
     <Compile Include="MainContainer.xaml.cs">
       <DependentUpon>MainContainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NavigationMessenger.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Service References\ServiceUser\Reference.cs">
       <AutoGen>True</AutoGen>

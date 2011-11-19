@@ -26,6 +26,8 @@ namespace Wpf_Medical.ViewModel
         private string _login;
         private string _password;
 
+        /// Pendant l'appel au webservice, un message indique a l'utilisateur ce qui se passe
+        /// a savoir VERIFICATION DE COMPTE
         private string _waitingMessage;
 
         #endregion
