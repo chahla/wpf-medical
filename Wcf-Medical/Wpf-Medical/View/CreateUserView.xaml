@@ -33,7 +33,7 @@
                             </StackPanel>
                         
                         </StackPanel>
-                        <Button Content="Ajouter un utilisateur" Margin="50" Height="29" HorizontalAlignment="Center" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
+                        <Button Content="Valider l'inscription" Margin="50" Height="29" HorizontalAlignment="Center" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
                     </StackPanel>
                 </Grid>
             </GroupBox>

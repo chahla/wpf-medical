@@ -23,7 +23,7 @@ namespace Wcf_Medical.DataAccess
             {
                 foreach (var item in LoadedDatas)
                 {
-                    if (item.Metadata["type"] == ConfigurationManager.AppSettings["type"])
+                    if (item.Metadata["type"].ToString() == ConfigurationManager.AppSettings["type"])
                     {
                         return item.Value.CreateListObservation();
                     }

@@ -1,7 +1,7 @@
 ﻿<Application x:Class="Wpf_Medical.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             >
+             StartupUri="MainContainer.xaml">
     <Application.Resources>
          
     </Application.Resources>

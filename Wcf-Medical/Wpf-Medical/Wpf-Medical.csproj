@@ -38,6 +38,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,13 +57,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainContainer.xaml.cs">
+      <DependentUpon>MainContainer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RelayCommand.cs" />
+    <Compile Include="Service References\ServiceUser\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModel\FirstViewModel.cs" />
+    <Compile Include="ViewModel\CreateUserSuccessViewModel.cs" />
+    <Compile Include="ViewModel\CreateUserViewModel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MemberBrowserViewModel.cs" />
+    <Compile Include="ViewModel\ObservationTableViewModel.cs" />
+    <Compile Include="ViewModel\PatientBrowserViewModel.cs" />
+    <Compile Include="ViewModel\PatientPictureViewModel.cs" />
+    <Compile Include="ViewModel\PictureManager1ViewModel.cs" />
+    <Compile Include="ViewModel\PictureManager2ViewModel.cs" />
     <Compile Include="View\CreateUserSuccessView.xaml.cs">
       <DependentUpon>CreateUserSuccessView.xaml</DependentUpon>
     </Compile>
@@ -111,16 +130,34 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\ServiceUser\ServiceUser.wsdl" />
+    <None Include="Service References\ServiceUser\ServiceUser.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceUser\ServiceUser1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceUser\ServiceUser2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceUser\Wpf_Medical.ServiceUser.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MainContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreateUserSuccessView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +198,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceUser\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\ServiceUser.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

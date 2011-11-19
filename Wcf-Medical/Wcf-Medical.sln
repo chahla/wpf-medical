@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dbo", "Dbo\Dbo.csproj", "{E251EA27-0BE8-46DF-9E11-5F86E2402E84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf-Medical", "Wpf-Medical\Wpf-Medical.csproj", "{09AAD888-7EFB-46C1-9C05-228BB8233041}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0040AD7D-3BB5-443C-9101-FAA725F7FB54} = {0040AD7D-3BB5-443C-9101-FAA725F7FB54}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

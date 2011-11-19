@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
+using System.Diagnostics;
 
 namespace Wpf_Medical
 {
@@ -12,21 +13,18 @@ namespace Wpf_Medical
     /// </summary>
     public partial class App : Application
     {
-        /// <summary>
-        /// permet de lancer la 1er fenêtre
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
+        ///// <summary>
+        ///// permet de lancer la 1er fenêtre
+        ///// </summary>
+        ///// <param name="e"></param>
+        //protected override void OnStartup(StartupEventArgs e)
+        //{
+        //    base.OnStartup(e);
 
-            //TODO
-
-            //Remplacer par votre fenêtre
-            View.LoginView window = new View.LoginView();
-            ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
-            window.DataContext = vm;
-            //window.Show();
-        }
+        //    View.LoginView window = new View.LoginView();
+        //    ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
+        //    window.DataContext = vm;
+        //    window.Show();
+        //}
     }
 }
