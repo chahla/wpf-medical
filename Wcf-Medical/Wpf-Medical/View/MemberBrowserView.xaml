@@ -31,6 +31,16 @@
             <Setter Property="Foreground" Value="DarkOliveGreen" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+        <DataTemplate x:Key="MemberListRenderer">
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Path="Firstname" IsAsync="True" FallbackValue="Chargement"/>
+                        <Binding Path="Name" IsAsync="True" FallbackValue="Chargement"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </DataTemplate>
     </Page.Resources>
 
     <Grid>
@@ -46,7 +56,7 @@
                 
                 <GroupBox Header="Sélection Membre" Margin="10,0,0,0" Height="401" HorizontalAlignment="Left" Name="groupBoxMemberselect" VerticalAlignment="Top" Width="197">
                     <Grid>
-                        <ListBox Margin="6,6,7,6" Name="listBoxMembre" />
+                        <ListBox Margin="6,6,7,6" Name="listBoxMembre" ItemsSource="{Binding ListUser}" ItemTemplate="{StaticResource MemberListRenderer}"/>
                     </Grid>
                 </GroupBox>
             </StackPanel>

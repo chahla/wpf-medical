@@ -137,7 +137,6 @@ namespace Wpf_Medical.ViewModel
             worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) => 
             {
                 ServiceUser.ServiceUserClient userService = new ServiceUser.ServiceUserClient();
-                BackgroundWorker bg = s as BackgroundWorker;
                 e.Result = userService.Connect(_login, _password);
             });
 
