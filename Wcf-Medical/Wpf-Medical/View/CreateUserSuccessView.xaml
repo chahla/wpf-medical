@@ -6,17 +6,42 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="Inscription utilisateur réussie">
+<Page.Resources>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
 
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="Foreground" Value="RoyalBlue" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style x:Key="element" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Heavy" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Foreground" Value="DarkOliveGreen" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label Content="Inscription réussie" Height="37" HorizontalAlignment="Center" Margin="30" Name="labelTitle" VerticalAlignment="Top" FontFamily="Arial Unicode MS" FontSize="20" />
-            <Label Content="Voici un rappel des informations que vous avez renseignées :" Height="30" HorizontalAlignment="Center" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
+            <Label Style="{StaticResource Title}" Content="Inscription réussie" Height="37" HorizontalAlignment="Center" Margin="30" Name="labelTitle" VerticalAlignment="Top" FontFamily="Arial Unicode MS" FontSize="20" />
+            <Label Style="{StaticResource Subtitle}" Content="Voici un rappel des informations que vous avez renseignées :" Height="30" HorizontalAlignment="Center" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Nom" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelName" VerticalAlignment="Top" FontSize="14" />
-                    <Label Content="Prénom" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelSurname" VerticalAlignment="Top" FontSize="14" />
-                    <Label Content="Fonction" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelFunction" VerticalAlignment="Top" FontSize="14" />
+                    <Label Style="{StaticResource element}" Content="Nom" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelName" VerticalAlignment="Top" FontSize="14" />
+                    <Label Style="{StaticResource element}" Content="Prénom" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelSurname" VerticalAlignment="Top" FontSize="14" />
+                    <Label Style="{StaticResource element}" Content="Fonction" Height="28" Margin="10" HorizontalAlignment="Left" Name="labelFunction" VerticalAlignment="Top" FontSize="14" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
@@ -26,13 +51,13 @@
                 </StackPanel>
             </StackPanel>
 
-            <Label Content="Retenez les informations suivantes car elles vous permettront de vous connecter" Height="28" HorizontalAlignment="Center" Margin="10" Name="label2" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
+            <Label Style="{StaticResource Subtitle}" Content="Retenez les informations suivantes car elles vous permettront de vous connecter" Height="28" HorizontalAlignment="Center" Margin="10" Name="label2" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="10" Name="labelLogin" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Normal" />
-                    <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="10"  Name="labelPassword" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                    <Label Style="{StaticResource element}" Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="10" Name="labelLogin" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                    <Label Style="{StaticResource element}" Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="10"  Name="labelPassword" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">

@@ -6,13 +6,38 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="PatientPictureView">
+<Page.Resources>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
 
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="Foreground" Value="RoyalBlue" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style x:Key="element" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Heavy" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Foreground" Value="DarkOliveGreen" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
         
             <StackPanel Orientation="Horizontal">
-                <Label Content="Images du patient" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelTitle" VerticalAlignment="Top" Width="355" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Unicode MS" />
-                <Label Content="Label" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelPatientname" VerticalAlignment="Top" Width="315" FontSize="20" FontFamily="Arial Unicode MS" HorizontalContentAlignment="Center" />
+                <Label Style="{StaticResource Title}" Content="Images du patient" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelTitle" VerticalAlignment="Top" Width="355" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Unicode MS" />
+                <Label Style="{StaticResource element}" Content="Label" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelPatientname" VerticalAlignment="Top" Width="315" FontSize="20" FontFamily="Arial Unicode MS" HorizontalContentAlignment="Center" />
             </StackPanel>
             
             <ScrollViewer Height="288" HorizontalAlignment="Left" Margin="10" Name="scrollViewer1" VerticalAlignment="Top" Width="676" />               

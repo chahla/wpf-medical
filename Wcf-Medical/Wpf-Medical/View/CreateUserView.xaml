@@ -6,23 +6,48 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="Inscription Utilisateur">
+<Page.Resources>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
 
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="Foreground" Value="RoyalBlue" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style x:Key="element" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Heavy" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Foreground" Value="DarkOliveGreen" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
-            <Label Content="Création de compte utilisateur" Height="39" HorizontalAlignment="Center" Margin="20" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="284" />
-            <Label Content="Remplissez tous les champs du formulaire" Height="28" HorizontalAlignment="Center" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" Width="315" FontSize="16" FontFamily="Arial Unicode MS" />
+            <Label Style="{StaticResource Title}" Content="Création de compte utilisateur" Height="39" HorizontalAlignment="Center" Margin="20" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" Width="292" />
+            <Label Style="{StaticResource Subtitle}" Content="Remplissez tous les champs du formulaire" Height="28" HorizontalAlignment="Center" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" Width="328" FontSize="16" FontFamily="Arial Unicode MS" />
             <GroupBox Header="Création Utilisateur" Height="426" HorizontalAlignment="Center" Margin="10" Name="groupBoxForm" VerticalAlignment="Top" Width="676">
                 <Grid>
                      <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" Margin="60" HorizontalAlignment="Center">
                             
                             <StackPanel Orientation="Vertical">
-                                <Label Content="Nom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelName" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelSurname" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                <Label Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelLogin" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPassword" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                <Label Content="Confirmer votre mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPasswordconfirmation" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                <Label Content="Fonction" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelFunction" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Style="{StaticResource element}" Content="Nom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelName" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Style="{StaticResource element}" Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelSurname" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Style="{StaticResource element}" Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelLogin" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Style="{StaticResource element}" Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPassword" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Style="{StaticResource element}" Content="Confirmer votre mot de passe" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelPasswordconfirmation" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                <Label Style="{StaticResource element}" Content="Fonction" Height="28" HorizontalAlignment="Left" Margin="10,1,0,0" Name="labelFunction" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical">

@@ -6,16 +6,42 @@
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="750"
 	Title="LoginView">
+    <Page.Resources>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
+
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="Foreground" Value="RoyalBlue" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style x:Key="element" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Heavy" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Foreground" Value="DarkOliveGreen" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label Content="Bienvenue dans le service de gestion de l'hôpital" Height="42" HorizontalAlignment="Center" Margin="40" Name="title" VerticalAlignment="Top" IsEnabled="True" FontFamily="Arial Unicode MS" FontSize="20" Width="448" FontWeight="Normal" />
+            <Label Style="{StaticResource Title}" Content="Bienvenue dans le service de gestion de l'hôpital" Height="42" HorizontalAlignment="Center" Margin="40" Name="title" VerticalAlignment="Top" IsEnabled="True" FontFamily="Arial Unicode MS" FontSize="20" Width="469" />
 
             <GroupBox Header="Connexion" Height="233" HorizontalAlignment="Center" Name="groupBoxConnection" VerticalAlignment="Top" Width="448">
                 <Grid Width="431">
-                    <Label Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="67,33,0,0" Name="labelLogin" VerticalAlignment="Top" FontSize="14" />
+                    <Label Style="{StaticResource element}"  Content="Identifiant" Height="28" HorizontalAlignment="Left" Margin="67,33,0,0" Name="labelLogin" VerticalAlignment="Top" FontSize="14" />
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,38,95,0" Name="textBoxLogin" VerticalAlignment="Top" Width="120" Text="{Binding Login, Mode=TwoWay}"/>
-                    <Label Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="67,79,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" />
+                    <Label Style="{StaticResource element}" Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="67,79,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="215,84,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="121" Text="{Binding Password, Mode=TwoWay}"/>
                     <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="158,124,142,58"/>
                     <Button Content="Se connecter" Height="29" HorizontalAlignment="Left" Margin="158,167,0,0" Name="buttonConnection" VerticalAlignment="Top" Width="114" FontWeight="Bold" Command="{Binding ConnectCommand}"/>
