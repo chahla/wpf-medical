@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace Wpf_Medical.ViewModel
 {
@@ -131,16 +132,51 @@ namespace Wpf_Medical.ViewModel
         /// </summary>
         private void ClickConnect()
         {
-            ServiceUser.ServiceUserClient userService = new ServiceUser.ServiceUserClient();
-            BeginWaitingSequence();
-            if (userService.Connect(_login, _password))
+            BackgroundWorker worker = new BackgroundWorker();
+
+            worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) => 
             {
-                Debug.WriteLine("REGISTERED");
-            }
-            else {
-                Debug.WriteLine("NOT REGISTERED");
-            }
-            EndWaitingSequence();
+                ServiceUser.ServiceUserClient userService = new ServiceUser.ServiceUserClient();
+                BackgroundWorker bg = s as BackgroundWorker;
+                e.Result = userService.Connect(_login, _password);
+            });
+
+            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>
+            {
+                // TODO voir le CreateUserViewModel pour l'implementation erreur
+                if (e.Cancelled) {
+                }
+                if (e.Error != null) {
+                }
+                bool? res = e.Result as bool?;
+                if (res == null)
+                {
+                }
+                if (res == true)
+                {
+                    View.HomeView window = new View.HomeView();
+                    ViewModel.HomeViewModel vm = new HomeViewModel(window);
+                    window.DataContext = vm;
+
+                    _ns = NavigationService.GetNavigationService(_linkedView);
+                    _ns.Navigate(window);
+                }
+                else {
+                    Debug.WriteLine("NON ENREGISTRE");
+                }
+            });
+
+            worker.RunWorkerAsync();
+
+            //BeginWaitingSequence();
+            //if (userService.Connect(_login, _password))
+            //{
+            //    Debug.WriteLine("REGISTERED");
+            //}
+            //else {
+            //    Debug.WriteLine("NOT REGISTERED");
+            //}
+            //EndWaitingSequence();
         }
     }
 }

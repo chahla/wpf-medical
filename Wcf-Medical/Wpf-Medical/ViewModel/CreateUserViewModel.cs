@@ -207,7 +207,8 @@ namespace Wpf_Medical.ViewModel
                 {
                     Debug.WriteLine("ERREUR COTE SERVEUR");
                 }
-                else {
+                if (res == true)
+                {
                     /// Juste avant de creer la page de confirmation il faut 
                     /// enregister les informations dans le NavigationMessenger
                     NavigationMessenger.GetInstance().TransitUser = newUser;
@@ -218,6 +219,9 @@ namespace Wpf_Medical.ViewModel
 
                     _ns = NavigationService.GetNavigationService(_linkedView);
                     _ns.Navigate(window);
+                }
+                else {
+                    Debug.WriteLine("ECHEC DE L'INSCRIPTION");
                 }
             });
 
