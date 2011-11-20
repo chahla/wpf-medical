@@ -6,10 +6,35 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="PictureManager2View">
+<Page.Resources>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
 
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="Foreground" Value="RoyalBlue" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style x:Key="element" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Heavy" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Foreground" Value="DarkOliveGreen" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label Content="Gestion des images" Height="37" HorizontalAlignment="Center" Margin="30" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />
+            <Label Style="{StaticResource Title}" Content="Gestion des images" Height="37" HorizontalAlignment="Center" Margin="30" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <ListBox Height="208" Margin="20" Name="listBoxEmployees" VerticalAlignment="Top" Width="150" />
