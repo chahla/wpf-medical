@@ -15,7 +15,7 @@
         <Style x:Key="Title" TargetType="Label">
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="Firebrick" />
-            
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
         </Style>
         <Style x:Key="Subtitle" TargetType="Label">
             <Setter Property="Foreground" Value="RoyalBlue" />
