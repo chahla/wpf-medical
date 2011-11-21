@@ -117,6 +117,15 @@ namespace Wpf_Medical.ViewModel
             set { _availableRoleList = value; }
         }
 
+        // Si vrai, empêche le clic sur le bouton
+        private bool _iscreatingaccount;
+
+        public bool Iscreatingaccount
+        {
+            get { return _iscreatingaccount; }
+            set { _iscreatingaccount = value; }
+        }
+
         /// <summary>
         /// constructeur
         /// </summary>
@@ -139,6 +148,8 @@ namespace Wpf_Medical.ViewModel
             _availableRoleList.Add("Radiologue");
 
             _role = "Chirurgien";
+
+            _iscreatingaccount = false;
         }
 
         /// <summary>
@@ -158,7 +169,8 @@ namespace Wpf_Medical.ViewModel
                 _password.Length != 0 && 
                 _confirmPassword.Length != 0 && 
                 _password == _confirmPassword && 
-                (_availableRoleList.Find(lambda => lambda == _role).Any())
+                (_availableRoleList.Find(lambda => lambda == _role).Any()) &&
+                !_iscreatingaccount
             );
         }
 
@@ -185,6 +197,7 @@ namespace Wpf_Medical.ViewModel
                 ServiceUser.ServiceUserClient serviceUser = new ServiceUser.ServiceUserClient();
 
                 Debug.WriteLine("DEBUT");
+                _iscreatingaccount = true;
 
                 BackgroundWorker bg = s as BackgroundWorker;
                 e.Result = serviceUser.AddUser(newUser);
@@ -194,6 +207,7 @@ namespace Wpf_Medical.ViewModel
             worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>
             {
                 Debug.WriteLine("FIN");
+                _iscreatingaccount = false;
 
                 if (e.Cancelled) {
                     Debug.WriteLine("CANCELLED");

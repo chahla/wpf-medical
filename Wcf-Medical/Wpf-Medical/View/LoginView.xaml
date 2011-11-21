@@ -7,6 +7,7 @@
       d:DesignHeight="650" d:DesignWidth="750"
 	Title="LoginView">
     <Page.Resources>
+        <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
         <Style TargetType="Page">
             <Setter Property="Background" Value="Beige" />
         </Style>
@@ -14,10 +15,12 @@
         <Style x:Key="Title" TargetType="Label">
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="Firebrick" />
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
         </Style>
         <Style x:Key="Subtitle" TargetType="Label">
             <Setter Property="Foreground" Value="RoyalBlue" />
             <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
         </Style>
         <Style x:Key="element" TargetType="Label">
             <Setter Property="FontWeight" Value="Bold" />
@@ -43,7 +46,7 @@
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,38,95,0" Name="textBoxLogin" VerticalAlignment="Top" Width="120" Text="{Binding Login, Mode=TwoWay}"/>
                     <Label Style="{StaticResource element}" Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="67,79,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="215,84,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="121" Text="{Binding Password, Mode=TwoWay}"/>
-                    <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="158,124,142,58"/>
+                    <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="124,124,124,58"/>
                     <Button Content="Se connecter" Height="29" HorizontalAlignment="Left" Margin="158,167,0,0" Name="buttonConnection" VerticalAlignment="Top" Width="114" FontWeight="Bold" Command="{Binding ConnectCommand}"/>
                 </Grid>
             </GroupBox>

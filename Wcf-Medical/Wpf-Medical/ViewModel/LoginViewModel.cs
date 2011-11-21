@@ -62,7 +62,14 @@ namespace Wpf_Medical.ViewModel
         public string WaitingMessage
         {
             get { return _waitingMessage; }
-            set { _waitingMessage = value; }
+            set
+            {
+                if (_waitingMessage != value)
+                {
+                    _waitingMessage = value;
+                    OnPropertyChanged("WaitingMessage");
+                }
+            }
         }
 
         public ICommand ConnectCommand
@@ -77,6 +84,14 @@ namespace Wpf_Medical.ViewModel
             set { _createCommand = value; }
         }
         
+		// Si vrai, empêche le clic sur les boutons
+		private bool _ischecking;
+
+        public bool Ischecking
+        {
+            get { return _ischecking; }
+            set { _ischecking = value; }
+        }
 
         /// <summary>
         /// constructeur
@@ -85,11 +100,13 @@ namespace Wpf_Medical.ViewModel
         {
             _linkedView = lkView;
 
-            _createCommand = new RelayCommand(param => ClickCreate(), param => true);
+            _createCommand = new RelayCommand(param => ClickCreate(), param => IscheckingAccount());
             _connectCommand = new RelayCommand(param => ClickConnect(), param => IsFormValid());
 
             _login = "";
             _password = "";
+            _waitingMessage = "";
+            _ischecking = false;
         }
 
         /// <summary>
@@ -114,17 +131,26 @@ namespace Wpf_Medical.ViewModel
         /// <returns></returns>
         public bool IsFormValid()
         {
-            return ((_login.Length > 0) && (_password.Length > 0));
+            return ((_login.Length > 0) && (_password.Length > 0) && !_ischecking);
+        }
+
+        /// <summary>
+        /// cette methode permet de desactiver le bouton de creation pendant la verification
+        /// </summary>
+        /// <returns></returns>
+        public bool IscheckingAccount()
+        {
+            return (!_ischecking);
         }
 
         public void BeginWaitingSequence()
         {
-            _waitingMessage = "Vérification du compte";
+            WaitingMessage = "Vérification du compte";
         }
 
         public void EndWaitingSequence()
         {
-            _waitingMessage = "";
+            WaitingMessage = "";
         }
 
         /// <summary>
@@ -142,11 +168,14 @@ namespace Wpf_Medical.ViewModel
 
             worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) => 
             {
+                _ischecking = true;
                 e.Result = userService.Connect(_login, _password);
             });
 
             worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>
             {
+                EndWaitingSequence();
+                _ischecking = false;
                 // TODO voir le CreateUserViewModel pour l'implementation erreur
                 if (e.Cancelled) {
                 }
@@ -201,6 +230,8 @@ namespace Wpf_Medical.ViewModel
             });
 
             worker.RunWorkerAsync();
+
+            BeginWaitingSequence();
         }
     }
 }
