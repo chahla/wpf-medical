@@ -46,15 +46,8 @@ namespace Wpf_Medical.ViewModel
                 Debug.WriteLine("DEBUT");
                 BackgroundWorker bg = s as BackgroundWorker;
                 ServiceUser.ServiceUserClient serviceUser = new ServiceUser.ServiceUserClient();
-                serviceUser.InnerChannel.OperationTimeout = new TimeSpan(0, 1, 30);
-                try
-                {
-                    e.Result = serviceUser.GetListUser();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.StackTrace);
-                }
+
+                e.Result = serviceUser.GetListUser();
             });
 
             worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>

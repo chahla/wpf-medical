@@ -31,6 +31,7 @@
             <Setter Property="Foreground" Value="DarkOliveGreen" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+
     </Page.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
