@@ -11,14 +11,21 @@
         <Style TargetType="Page">
             <Setter Property="Background" Value="Beige" />
         </Style>
-        
+
+        <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
+
         <Style x:Key="Title" TargetType="Label">
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="Firebrick" />
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
         </Style>
         <Style x:Key="Subtitle" TargetType="Label">
             <Setter Property="Foreground" Value="RoyalBlue" />
             <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
         </Style>
         <Style x:Key="element" TargetType="Label">
             <Setter Property="FontWeight" Value="Bold" />
