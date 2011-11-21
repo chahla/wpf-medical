@@ -166,10 +166,32 @@ namespace Wpf_Medical.ViewModel
             
             ServiceUser.ServiceUserClient userService = new ServiceUser.ServiceUserClient();
 
+            /* pour tester j'avais commenté le userservice et ses utilisations pour qu'il n'y ai qu'un service qui tourne à la fois */
+            ///
+            // SERVICELIVE
+            // CODE MORT
+            ///
+            /*System.ServiceModel.InstanceContext context = new System.ServiceModel.InstanceContext(new MyCallback());
+
+            ServiceLive.ServiceLiveClient liveService = new ServiceLive.ServiceLiveClient(context);*/
+            ///
+            // SERVICELIVE
+            // CODE MORT
+            ///
+            
             worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) => 
             {
                 _ischecking = true;
                 e.Result = userService.Connect(_login, _password);
+                ///
+                // SERVICELIVE
+                // CODE MORT
+                ///
+                /*liveService.Subscribe();*/
+                ///
+                // SERVICELIVE
+                // CODE MORT
+                ///
             });
 
             worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>
@@ -235,3 +257,29 @@ namespace Wpf_Medical.ViewModel
         }
     }
 }
+
+///
+// SERVICELIVE
+// CODE MORT
+///
+/*class MyCallback : Wpf_Medical.ServiceLive.IServiceLiveCallback
+{
+    public MyCallback()
+    {
+    }
+
+    public void PushDataHeart(double requestData)
+    {
+        Debug.WriteLine(requestData);
+    }
+
+    public void PushDataTemp(double requestData)
+    {
+        Debug.WriteLine(requestData);
+    }
+    
+}*/
+///
+// SERVICELIVE
+// CODE MORT
+///
