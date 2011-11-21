@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BoolConverter.cs" />
     <Compile Include="MainContainer.xaml.cs">
       <DependentUpon>MainContainer.xaml</DependentUpon>
     </Compile>
@@ -261,31 +262,16 @@
     <WCFMetadataStorage Include="Service References\ServiceUser\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceUser\ServiceUser.disco" />
+    <None Include="Service References\ServiceLive\ServiceLive.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceUser\configuration91.svcinfo" />
+    <None Include="Service References\ServiceLive\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceUser\configuration.svcinfo" />
+    <None Include="Service References\ServiceLive\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceUser\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePatient\ServicePatient.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePatient\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePatient\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePatient\Reference.svcmap">
+    <None Include="Service References\ServiceLive\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -306,16 +292,31 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceLive\ServiceLive.disco" />
+    <None Include="Service References\ServicePatient\ServicePatient.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceLive\configuration91.svcinfo" />
+    <None Include="Service References\ServicePatient\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceLive\configuration.svcinfo" />
+    <None Include="Service References\ServicePatient\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceLive\Reference.svcmap">
+    <None Include="Service References\ServicePatient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\ServiceUser.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceUser\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

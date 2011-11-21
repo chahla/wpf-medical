@@ -44,8 +44,6 @@ namespace Wpf_Medical.ViewModel
             {
                 Debug.WriteLine("DEBUT");
                 ServicePatient.ServicePatientClient patientService = new ServicePatient.ServicePatientClient();
-                //meme en attendant  5 min
-                //patientService.InnerChannel.OperationTimeout = new TimeSpan(0, 5, 0);
                 e.Result = patientService.GetListPatient();
             });
 

@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace Wpf_Medical.ViewModel
 {
@@ -19,13 +20,18 @@ namespace Wpf_Medical.ViewModel
         public ICommand ClickCommand { get; set; }
         #endregion
 
-        List<ServiceUser.User> _listUser = null;
+        ObservableCollection<ServiceUser.User> _listUser = null;
 
-        public List<ServiceUser.User> ListUser
+        public ObservableCollection<ServiceUser.User> ListUser
         {
             get { return _listUser; }
-            set { _listUser = value; }
+            set
+            {
+                _listUser = value;
+            }
         }
+
+
 
         /// <summary>
         /// constructeur
@@ -36,7 +42,7 @@ namespace Wpf_Medical.ViewModel
 
             ClickCommand = new RelayCommand(param => Click(), param => true);
 
-            _listUser = new List<ServiceUser.User>();
+            _listUser = new ObservableCollection<ServiceUser.User>();
 
             /// Lors de la creation de la fenetre nous chargons la liste des utilisateurs
             BackgroundWorker worker = new BackgroundWorker();
@@ -44,9 +50,7 @@ namespace Wpf_Medical.ViewModel
             worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) =>
             {
                 Debug.WriteLine("DEBUT");
-                BackgroundWorker bg = s as BackgroundWorker;
                 ServiceUser.ServiceUserClient serviceUser = new ServiceUser.ServiceUserClient();
-
                 e.Result = serviceUser.GetListUser();
             });
 
@@ -64,7 +68,10 @@ namespace Wpf_Medical.ViewModel
                 ServiceUser.User[] res = e.Result as ServiceUser.User[];
                 if (res != null)
                 {
-                    _listUser = res.ToList();
+                    foreach (ServiceUser.User item in res)
+                    {
+                        _listUser.Add(item);
+                    }
                 }
                 else 
                 {

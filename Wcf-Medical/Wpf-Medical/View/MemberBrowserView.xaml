@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:projlocal="clr-namespace:Wpf_Medical"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="MemberBrowserView">
@@ -32,15 +33,31 @@
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
         <DataTemplate x:Key="MemberListRenderer">
+            <!--
+            
+            /!\ /!\ /!\
+            DISCLAIMER : ceci n'est pas du code mort mais un moyen de montrer l'utilite du multibinding
+            /!\ /!\ /!\
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=Firstname, IsAsync=True, FallbackValue=Chargement...}"/>
+                <TextBlock Text="{Binding Path=Name, IsAsync=True, FallbackValue=Chargement...}" />
+            </StackPanel>
+            
+            -->
             <TextBlock>
                 <TextBlock.Text>
                     <MultiBinding StringFormat="{}{0} {1}">
-                        <Binding Path="Firstname" IsAsync="True" FallbackValue="Chargement"/>
-                        <Binding Path="Name" IsAsync="True" FallbackValue="Chargement"/>
+                        <Binding Path="Firstname" IsAsync="True" FallbackValue="Chargement ..."/>
+                        <Binding Path="Name" IsAsync="True"/>
                     </MultiBinding>
                 </TextBlock.Text>
             </TextBlock>
         </DataTemplate>
+        
+        <!--
+            Nous permet de convertir l'attribut bool en string
+        -->
+        <projlocal:BoolConverter x:Key="boolToStringConverter" />
     </Page.Resources>
 
     <Grid>
@@ -56,7 +73,7 @@
                 
                 <GroupBox Header="Sélection Membre" Margin="10,0,0,0" Height="401" HorizontalAlignment="Left" Name="groupBoxMemberselect" VerticalAlignment="Top" Width="197">
                     <Grid>
-                        <ListBox Margin="6,6,7,6" Name="listBoxMembre" ItemsSource="{Binding ListUser}" ItemTemplate="{StaticResource MemberListRenderer}"/>
+                        <ListBox Margin="6,6,7,6" Name="listBoxMember" ItemsSource="{Binding ListUser}" ItemTemplate="{StaticResource MemberListRenderer}"/>
                     </Grid>
                 </GroupBox>
             </StackPanel>
@@ -67,17 +84,17 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         
                         <StackPanel Orientation="Vertical" Margin="10">
-                        <Label Style="{StaticResource element}" Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                        <Label Style="{StaticResource element}" Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                        <Label Style="{StaticResource element}" Content="Fonction" Height="28" HorizontalAlignment="Left"  Name="labelFunction" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                        <Label Style="{StaticResource element}" Content="Connecté" Height="28" HorizontalAlignment="Left"  Name="labelConnected" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                            <Label Style="{StaticResource element}" Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                            <Label Style="{StaticResource element}" Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                            <Label Style="{StaticResource element}" Content="Fonction" Height="28" HorizontalAlignment="Left"  Name="labelFunction" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                            <Label Style="{StaticResource element}" Content="Connecté" Height="28" HorizontalAlignment="Left"  Name="labelConnected" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
                         </StackPanel>
 
-                            <StackPanel Orientation="Vertical" Margin="10">
-                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelNamesend" VerticalAlignment="Top" />
-                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelSurnamesend" VerticalAlignment="Top" />                                                       
-                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelFunctionsend" VerticalAlignment="Top" />
-                        <Label Content="Label" Height="28" HorizontalAlignment="Left" Name="labelConnectedsend" VerticalAlignment="Top" />
+                        <StackPanel Orientation="Vertical" Margin="10">
+                            <Label Content="{Binding ElementName=listBoxMember, Path=SelectedItem.Name}" Height="28" HorizontalAlignment="Left" x:Name="labelNameUI" VerticalAlignment="Top" />
+                            <Label Content="{Binding ElementName=listBoxMember, Path=SelectedItem.Firstname}" Height="28" HorizontalAlignment="Left" x:Name="labelFirstnameUI" VerticalAlignment="Top" />
+                            <Label Content="{Binding ElementName=listBoxMember, Path=SelectedItem.Role}" Height="28" HorizontalAlignment="Left" x:Name="labelFunctionUI" VerticalAlignment="Top" />
+                            <Label Content="{Binding ElementName=listBoxMember, Path=SelectedItem.Connected, Converter={StaticResource boolToStringConverter}}" Height="28" HorizontalAlignment="Left" x:Name="labelConnectedUI" VerticalAlignment="Top" />
                         </StackPanel>
 
                             <Image Margin="10" Height="180" HorizontalAlignment="Left" Name="imageMember" Stretch="Fill" VerticalAlignment="Top" Width="182" />
