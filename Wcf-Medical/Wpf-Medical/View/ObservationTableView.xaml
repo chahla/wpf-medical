@@ -7,11 +7,6 @@
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="ObservationTableView">
     <Page.Resources>
-
-        <Style TargetType="Page">
-            <Setter Property="Background" Value="Beige" />
-        </Style>
-
         <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
         <Style TargetType="Page">
             <Setter Property="Background" Value="Beige" />
