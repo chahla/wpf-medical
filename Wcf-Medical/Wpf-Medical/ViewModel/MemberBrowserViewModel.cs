@@ -28,6 +28,7 @@ namespace Wpf_Medical.ViewModel
             set
             {
                 _listUser = value;
+
             }
         }
 
@@ -80,6 +81,7 @@ namespace Wpf_Medical.ViewModel
             });
 
             worker.RunWorkerAsync();
+
         }
 
         /// <summary>

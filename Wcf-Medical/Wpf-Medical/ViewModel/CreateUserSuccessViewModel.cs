@@ -103,7 +103,7 @@ namespace Wpf_Medical.ViewModel
 
             _loginCommand = new RelayCommand(param => ToFirstLogin(), param => true);
 
-            ServiceUser.User createdUser = NavigationMessenger.GetInstance().TransitUser;
+            ServiceUser.User createdUser = NavigationMessenger.GetInstance().TransitCreatedUser;
 
             _name = createdUser.Name;
             _firstname = createdUser.Firstname;

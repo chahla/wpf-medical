@@ -135,7 +135,7 @@ namespace Wpf_Medical.ViewModel
             _availableRoleList = new List<string>();
             _availableRoleList.Add("Chirurgien");
             _availableRoleList.Add("Infirmière");
-            _availableRoleList.Add("Médecin");
+            _availableRoleList.Add("Medecin");
             _availableRoleList.Add("Radiologue");
 
             _role = "Chirurgien";
@@ -211,7 +211,7 @@ namespace Wpf_Medical.ViewModel
                 {
                     /// Juste avant de creer la page de confirmation il faut 
                     /// enregister les informations dans le NavigationMessenger
-                    NavigationMessenger.GetInstance().TransitUser = newUser;
+                    NavigationMessenger.GetInstance().TransitCreatedUser = newUser;
 
                     View.CreateUserSuccessView window = new View.CreateUserSuccessView();
                     ViewModel.CreateUserSuccessViewModel vm = new CreateUserSuccessViewModel(window);

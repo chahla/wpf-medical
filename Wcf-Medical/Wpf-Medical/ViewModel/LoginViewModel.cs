@@ -132,11 +132,16 @@ namespace Wpf_Medical.ViewModel
         /// </summary>
         private void ClickConnect()
         {
+            /// Le bgw servant a verifier si le compte existe
             BackgroundWorker worker = new BackgroundWorker();
+
+            /// le bgw servant a determiner le role
+            BackgroundWorker workerFetchRole = new BackgroundWorker();
+            
+            ServiceUser.ServiceUserClient userService = new ServiceUser.ServiceUserClient();
 
             worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) => 
             {
-                ServiceUser.ServiceUserClient userService = new ServiceUser.ServiceUserClient();
                 e.Result = userService.Connect(_login, _password);
             });
 
@@ -153,6 +158,11 @@ namespace Wpf_Medical.ViewModel
                 }
                 if (res == true)
                 {
+                    /// Le webservice nous indique que le compte est valide mais on ne connait
+                    /// pas encore le role de l'utilisateur On doit donc faire appel a un 
+                    /// autre webservice
+                    workerFetchRole.RunWorkerAsync();
+
                     View.HomeView window = new View.HomeView();
                     ViewModel.HomeViewModel vm = new HomeViewModel(window);
                     window.DataContext = vm;
@@ -165,17 +175,32 @@ namespace Wpf_Medical.ViewModel
                 }
             });
 
-            worker.RunWorkerAsync();
+            workerFetchRole.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) =>
+            {
+                e.Result = userService.GetRole(_login);
+            });
 
-            //BeginWaitingSequence();
-            //if (userService.Connect(_login, _password))
-            //{
-            //    Debug.WriteLine("REGISTERED");
-            //}
-            //else {
-            //    Debug.WriteLine("NOT REGISTERED");
-            //}
-            //EndWaitingSequence();
+            workerFetchRole.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>
+            {
+                if (e.Cancelled)
+                {
+                }
+                if (e.Error != null)
+                {
+                }
+                string res = e.Result as string;
+                if (res == null)
+                {
+                }
+                if ((res == "Chirurgien") || (res == "Medecin") || (res == "Radiologue")) {
+                    NavigationMessenger.GetInstance().IsRWAccount = true;
+                }
+                else {
+                    NavigationMessenger.GetInstance().IsRWAccount = false;
+                }
+            });
+
+            worker.RunWorkerAsync();
         }
     }
 }

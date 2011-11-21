@@ -58,6 +58,11 @@
             Nous permet de convertir l'attribut bool en string
         -->
         <projlocal:BoolConverter x:Key="boolToStringConverter" />
+
+        <!--
+            Nous permet de convertir les byte[] en source de System.Windows.Control.Image via un BitmapImage
+        -->
+        <projlocal:ByteArrayConverter x:Key="byteToImageConverter" />
     </Page.Resources>
 
     <Grid>
@@ -97,7 +102,7 @@
                             <Label Content="{Binding ElementName=listBoxMember, Path=SelectedItem.Connected, Converter={StaticResource boolToStringConverter}}" Height="28" HorizontalAlignment="Left" x:Name="labelConnectedUI" VerticalAlignment="Top" />
                         </StackPanel>
 
-                            <Image Margin="10" Height="180" HorizontalAlignment="Left" Name="imageMember" Stretch="Fill" VerticalAlignment="Top" Width="182" />
+                            <Image Source="{Binding ElementName=listBoxMember, Path=SelectedItem.Picture, Converter={StaticResource byteToImageConverter}}" Margin="10" Height="180" HorizontalAlignment="Left" Name="imageMember" Stretch="Fill" VerticalAlignment="Top" Width="182" />
                         </StackPanel>
                     </Grid>
                 </GroupBox>

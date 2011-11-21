@@ -23,17 +23,30 @@ namespace Wpf_Medical
         /// Cet attribut est utile entre la page de creation de compte 
         /// et celle de validation car on a besion d'afficher les donnees
         /// </summary>
-        private ServiceUser.User _transitUser;
+        private ServiceUser.User _transitCreatedUser;
 
-        public ServiceUser.User TransitUser
+        /// <summary>
+        /// Ce booleen mis a jour a chaque connexion indique si l'utilisateur connecte 
+        /// a les droits de creation/suppression on le recupere en fonction du role
+        /// </summary>
+        private bool _isRWAccount;
+
+        public ServiceUser.User TransitCreatedUser
         {
-            get { return _transitUser; }
-            set { _transitUser = value; }
+            get { return _transitCreatedUser; }
+            set { _transitCreatedUser = value; }
+        }
+
+        public bool IsRWAccount
+        {
+            get { return _isRWAccount; }
+            set { _isRWAccount = value; }
         }
 
         private NavigationMessenger()
         {
-            _transitUser = new ServiceUser.User();
+            _transitCreatedUser = new ServiceUser.User();
+            _isRWAccount = false;
         }
 
         public static NavigationMessenger GetInstance()
