@@ -53,6 +53,7 @@
                     <Label Style="{StaticResource element}" Content="Date de naissance" Name="labelBirthdate" />
                     <Label Content="Label" Name="labelBirthdatesend" />
                 </StackPanel>
+                <Button Margin="10" Content="Supprimer" Height="23" Name="buttonPatientDelete" Width="75" />
             </StackPanel>
         </StackPanel>
        
