@@ -46,8 +46,8 @@
                     <TextBox Margin="90,0,10,0" Height="23" Name="textBoxName" Width="120" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left" Width="278">
-                    <Label Style="{StaticResource element}" Margin="10,0,10,0" Content="Prénom" Height="28" Name="labelPrenom" />
-                    <TextBox Margin="73,0,10,0" Height="23" Name="textBoxPrenom" Width="120" />
+                    <Label Style="{StaticResource element}" Margin="10,0,10,0" Content="Prénom" Height="28" Name="labelSurname" />
+                    <TextBox Margin="73,0,10,0" Height="23" Name="textBoxSurname" Width="120" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left" Width="279">
                     <Label Style="{StaticResource element}" Margin="10,0,10,0" Content="Date de naissance" Height="28" Width="115" Name="labelBirthdate" />

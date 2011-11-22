@@ -1,0 +1,60 @@
+﻿<Page x:Class="Wpf_Medical.View.PatientDeleteView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="750"
+	Title="PatientDeleteView">
+    <Page.Resources>
+        <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="Beige" />
+        </Style>
+
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="Foreground" Value="RoyalBlue" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+        </Style>
+        <Style x:Key="element" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Firebrick" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Heavy" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Foreground" Value="DarkOliveGreen" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <Label Style="{StaticResource Title}" Margin="10" Content="Supprimer un patient" Height="38" HorizontalAlignment="Left" Name="labelTitle" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />
+            <Label Style="{StaticResource Subtitle}" Margin="10" Content="Confirmer la suppression" Height="28" HorizontalAlignment="Left" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
+
+            <StackPanel Margin="30,20,0,0">
+                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Style="{StaticResource element}" Content="Nom" Name="labelName" />
+                    <Label Margin="72,0,0,0" Content="Label" Name="labelNamesend" />
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Style="{StaticResource element}" Content="Prénom" Name="labelSurname" />
+                    <Label Margin="56,0,0,0" Content="Label" Name="labelSurnamesend" />
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Style="{StaticResource element}" Content="Date de naissance" Name="labelBirthdate" />
+                    <Label Content="Label" Name="labelBirthdatesend" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+       
+    </Grid>
+</Page>
