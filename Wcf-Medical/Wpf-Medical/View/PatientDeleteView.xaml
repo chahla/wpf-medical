@@ -41,15 +41,15 @@
             <Label Style="{StaticResource Subtitle}" Margin="10" Content="Confirmer la suppression" Height="28" HorizontalAlignment="Left" Name="labelSubtitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" />
 
             <StackPanel Margin="30,20,0,0">
-                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Margin="15,10,10,10" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Label Style="{StaticResource element}" Content="Nom" Name="labelName" />
                     <Label Margin="72,0,0,0" Content="{Binding Name, Mode=TwoWay}" Name="labelNamesend" />
                 </StackPanel>
-                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Margin="15,10,10,10" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Label Style="{StaticResource element}" Content="Prénom" Name="labelSurname" />
                     <Label Margin="56,0,0,0" Content="{Binding Firstname, Mode=TwoWay}" Name="labelSurnamesend" />
                 </StackPanel>
-                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Margin="15,10,10,10" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Label Style="{StaticResource element}" Content="Date de naissance" Name="labelBirthdate" />
                     <Label Content="{Binding Birthday, Mode=TwoWay}" Name="labelBirthdatesend" />
                 </StackPanel>
