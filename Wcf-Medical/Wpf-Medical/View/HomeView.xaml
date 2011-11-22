@@ -42,14 +42,14 @@
 
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Button Command="{Binding ManagePatientCommand}" Content="Patients" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonPatient" VerticalAlignment="Top" Width="164" FontSize="14" />
-                <Button Command="{Binding ManageObservationCommand}" Content="Observation" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonObservation" VerticalAlignment="Top" Width="164" FontSize="14" />
+                <Button Command="{Binding ManageObservationCommand}" Content="Observation" Height="32" Margin="90, 0, 90, 0" HorizontalAlignment="Center"  Name="buttonObservation" VerticalAlignment="Top" Width="164" FontSize="14" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Button Command="{Binding ManageUserCommand}" Content="Personnel Hospitalier" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonEmployees" VerticalAlignment="Top" Width="164" FontSize="14" />
-                <Button Command="{Binding ManageImageCommand}" Content="Gestion des images" Height="32" Margin="90, 0, 0, 0" HorizontalAlignment="Center"  Name="buttonPicturemanager" VerticalAlignment="Top" Width="164" FontSize="14" />
+                <Button Command="{Binding ManageImageCommand}" Content="Gestion des images" Height="32" Margin="90, 0, 90, 0" HorizontalAlignment="Center"  Name="buttonPicturemanager" VerticalAlignment="Top" Width="164" FontSize="14" />
             </StackPanel>
-
+            <Button Content="Créer un compte utilisateur" Height="48" Margin="40" HorizontalAlignment="Center" Name="buttonCreateuser" VerticalAlignment="Top" Width="448" FontSize="20" Command="{Binding CreateCommand}"/>
         </StackPanel>
     </Grid>
 </Page>
