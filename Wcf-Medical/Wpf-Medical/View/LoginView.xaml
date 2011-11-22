@@ -34,7 +34,18 @@
             <Setter Property="Foreground" Value="DarkOliveGreen" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimation Storyboard.TargetName="ellipse" Duration="00:00:01" From="0" To="1" Storyboard.TargetProperty="Opacity" />
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipse" RepeatBehavior="Forever" >
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="359"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="buttonConnection">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Page.Triggers>
 
     <Grid>
         <StackPanel Orientation="Vertical">
@@ -46,11 +57,26 @@
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,38,95,0" Name="textBoxLogin" VerticalAlignment="Top" Width="120" Text="{Binding Login, Mode=TwoWay}"/>
                     <Label Style="{StaticResource element}" Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="67,79,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="215,84,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="121" Text="{Binding Password, Mode=TwoWay}"/>
-                    <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="124,124,124,58"/>
+                    <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="0,124,0,58"/>
+                    <Ellipse x:Name="ellipse"  StrokeThickness="5" RenderTransformOrigin="0.5,0.5" Width="20" Height="20" Margin="302,170,109,20" Opacity="0">
+                        <Ellipse.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Ellipse.RenderTransform>
+                        <Ellipse.Stroke>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF00D6FF" Offset="0"/>
+                                <GradientStop Color="#FF00FF56" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Stroke>
+                    </Ellipse>
                     <Button Content="Se connecter" Height="29" HorizontalAlignment="Left" Margin="158,167,0,0" Name="buttonConnection" VerticalAlignment="Top" Width="114" FontWeight="Bold" Command="{Binding ConnectCommand}"/>
                 </Grid>
-            </GroupBox>
-            <Button Content="Créer son compte utilisateur" Height="48" Margin="40" HorizontalAlignment="Center" Name="buttonCreateuser" VerticalAlignment="Top" Width="448" FontSize="20" Command="{Binding CreateCommand}"/>
+            </GroupBox>            
         </StackPanel>
     </Grid>
 </Page>

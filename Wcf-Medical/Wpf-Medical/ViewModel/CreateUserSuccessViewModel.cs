@@ -117,8 +117,8 @@ namespace Wpf_Medical.ViewModel
         /// </summary>
         private void ToFirstLogin()
         {
-            View.LoginView window = new View.LoginView();
-            ViewModel.LoginViewModel vm = new LoginViewModel(window);
+            View.HomeView window = new View.HomeView();
+            ViewModel.HomeViewModel vm = new HomeViewModel(window);
             window.DataContext = vm;
 
             _ns = NavigationService.GetNavigationService(_linkedView);

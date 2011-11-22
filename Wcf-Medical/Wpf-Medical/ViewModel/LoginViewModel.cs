@@ -20,7 +20,6 @@ namespace Wpf_Medical.ViewModel
 
         #region Commandes
         private ICommand _connectCommand;
-        private ICommand _createCommand;
         #endregion
 
         #region Binding Champs Formulaire
@@ -78,11 +77,6 @@ namespace Wpf_Medical.ViewModel
             set { _connectCommand = value; }
         }
 
-        public ICommand CreateCommand
-        {
-            get { return _createCommand; }
-            set { _createCommand = value; }
-        }
         
 		// Si vrai, empêche le clic sur les boutons
 		private bool _ischecking;
@@ -100,7 +94,7 @@ namespace Wpf_Medical.ViewModel
         {
             _linkedView = lkView;
 
-            _createCommand = new RelayCommand(param => ClickCreate(), param => IscheckingAccount());
+            
             _connectCommand = new RelayCommand(param => ClickConnect(), param => IsFormValid());
 
             _login = "";
@@ -109,21 +103,6 @@ namespace Wpf_Medical.ViewModel
             _ischecking = false;
         }
 
-        /// <summary>
-        /// L'action effectuee suite a un clic sur la creation de compte
-        /// </summary>
-        private void ClickCreate()
-        {
-            View.CreateUserView window = new View.CreateUserView();
-            ViewModel.CreateUserViewModel vm = new CreateUserViewModel(window);
-            window.DataContext = vm;
-
-            /// Afin de pouvoir naviguer entre les pages mais que les ViewModel ne savent pas 
-            /// du tout qui elles sont liees, on garde une trace de la page liee UNIQUEMENT 
-            /// pour avoir acces a son navigation service
-            _ns = NavigationService.GetNavigationService(_linkedView);
-            _ns.Navigate(window);
-        }
 
         /// <summary>
         /// cette methode verifie que le formulaire soit valide afin d'activer le bouton de connection
@@ -134,14 +113,6 @@ namespace Wpf_Medical.ViewModel
             return ((_login.Length > 0) && (_password.Length > 0) && !_ischecking);
         }
 
-        /// <summary>
-        /// cette methode permet de desactiver le bouton de creation pendant la verification
-        /// </summary>
-        /// <returns></returns>
-        public bool IscheckingAccount()
-        {
-            return (!_ischecking);
-        }
 
         public void BeginWaitingSequence()
         {
@@ -200,12 +171,16 @@ namespace Wpf_Medical.ViewModel
                 _ischecking = false;
                 // TODO voir le CreateUserViewModel pour l'implementation erreur
                 if (e.Cancelled) {
+                    WaitingMessage = "L'opération a été annulée.";
                 }
-                if (e.Error != null) {
+                if (e.Error != null)
+                {
+                    WaitingMessage = "Erreur lors de l'authentification : " + e.Error.Message;
                 }
                 bool? res = e.Result as bool?;
                 if (res == null)
                 {
+                    WaitingMessage = "Erreur côté serveur lors de l'authentification. Veuillez recommencer";
                 }
                 if (res == true)
                 {
@@ -223,6 +198,7 @@ namespace Wpf_Medical.ViewModel
                 }
                 else {
                     Debug.WriteLine("NON ENREGISTRE");
+                    WaitingMessage = "Erreur de login ou mot de passe.";
                 }
             });
 

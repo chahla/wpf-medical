@@ -145,16 +145,19 @@ namespace Wpf_Medical.ViewModel
                 if (e.Cancelled)
                 {
                     Debug.WriteLine("CANCELLED");
+                    WaitingMessage = "L'opération a été annulée.";
                 }
                 if (e.Error != null)
                 {
                     Debug.WriteLine("ERROR");
+                    WaitingMessage = "Erreur lors de la suppression : " + e.Error.Message;
                 }
                 bool? res = e.Result as bool?;
 
                 if (res == null)
                 {
                     Debug.WriteLine("ERREUR COTE SERVEUR");
+                    WaitingMessage = "Erreur côté serveur lors de la suppression. Veuillez recommencer";
                 }
                 if (res == true)
                 {
@@ -171,6 +174,7 @@ namespace Wpf_Medical.ViewModel
                 else
                 {
                     Debug.WriteLine("ECHEC DE LA SUPPRESSION");
+                    WaitingMessage = "La suppression a échoué. Veuillez recommencer.";
                 }
             });
 
