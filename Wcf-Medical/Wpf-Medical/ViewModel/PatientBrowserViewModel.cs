@@ -19,12 +19,19 @@ namespace Wpf_Medical.ViewModel
 
         #region Commandes
         public ICommand ClickCommand { get; set; }
+        private ICommand _addPatientCommand;
         #endregion
 
         public List<ServicePatient.Patient> ListPatient
         {
             get { return _listPatient; }
             set { _listPatient = value; }
+        }
+
+        public ICommand AddPatientCommand
+        {
+            get { return _addPatientCommand; }
+            set { _addPatientCommand = value; }
         }
 
         /// <summary>
@@ -35,6 +42,7 @@ namespace Wpf_Medical.ViewModel
             _linkedView = lkView;
 
             ClickCommand = new RelayCommand(param => Click(), param => true);
+            _addPatientCommand = new RelayCommand(param => ClickAddPatient(), param => IsAllowed());
 
             _listPatient = new List<ServicePatient.Patient>();
 
@@ -70,6 +78,24 @@ namespace Wpf_Medical.ViewModel
 
             worker.RunWorkerAsync();
 
+        }
+
+        private bool IsAllowed()
+        {
+            return true;
+        }
+
+        private void ClickAddPatient()
+        {
+            View.PaientAddView window = new View.PaientAddView();
+            ViewModel.PatientAddViewModel vm = new PatientAddViewModel(window);
+            window.DataContext = vm;
+
+            /// Afin de pouvoir naviguer entre les pages mais que les ViewModel ne savent pas 
+            /// du tout qui elles sont liees, on garde une trace de la page liee UNIQUEMENT 
+            /// pour avoir acces a son navigation service
+            _ns = NavigationService.GetNavigationService(_linkedView);
+            _ns.Navigate(window);
         }
 
         /// <summary>

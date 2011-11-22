@@ -27,6 +27,8 @@ namespace Wpf_Medical.ViewModel
         private string _role;
         private List<string> _availableRoleList;
 
+        private string _waitingMessage;
+
         public ICommand CreateCommand
         {
             get { return _createCommand; }
@@ -117,6 +119,19 @@ namespace Wpf_Medical.ViewModel
             set { _availableRoleList = value; }
         }
 
+        public string WaitingMessage
+        {
+            get { return _waitingMessage; }
+            set
+            {
+                if (_waitingMessage != value)
+                {
+                    _waitingMessage = value;
+                    OnPropertyChanged("WaitingMessage");
+                }
+            }
+        }
+
         // Si vrai, empêche le clic sur le bouton
         private bool _iscreatingaccount;
 
@@ -150,6 +165,7 @@ namespace Wpf_Medical.ViewModel
             _role = "Chirurgien";
 
             _iscreatingaccount = false;
+            _waitingMessage = "";
         }
 
         /// <summary>
@@ -208,6 +224,7 @@ namespace Wpf_Medical.ViewModel
             {
                 Debug.WriteLine("FIN");
                 _iscreatingaccount = false;
+                WaitingMessage = "";
 
                 if (e.Cancelled) {
                     Debug.WriteLine("CANCELLED");
@@ -226,6 +243,7 @@ namespace Wpf_Medical.ViewModel
                     /// Juste avant de creer la page de confirmation il faut 
                     /// enregister les informations dans le NavigationMessenger
                     NavigationMessenger.GetInstance().TransitCreatedUser = newUser;
+                    WaitingMessage = "Création réussie";
 
                     View.CreateUserSuccessView window = new View.CreateUserSuccessView();
                     ViewModel.CreateUserSuccessViewModel vm = new CreateUserSuccessViewModel(window);
@@ -233,6 +251,7 @@ namespace Wpf_Medical.ViewModel
 
                     _ns = NavigationService.GetNavigationService(_linkedView);
                     _ns.Navigate(window);
+                    WaitingMessage = "";
                 }
                 else {
                     Debug.WriteLine("ECHEC DE L'INSCRIPTION");
@@ -240,6 +259,7 @@ namespace Wpf_Medical.ViewModel
             });
 
             worker.RunWorkerAsync();
+            WaitingMessage = "Création du compte";
         }
     }
 }

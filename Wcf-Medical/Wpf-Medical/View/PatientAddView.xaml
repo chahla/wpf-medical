@@ -43,21 +43,21 @@
             <StackPanel HorizontalAlignment="Left" Margin="60">
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left" Width="278">
                     <Label Style="{StaticResource element}" Margin="10,0,10,0" Content="Nom" Height="28" Name="labelName" />
-                    <TextBox Margin="90,0,10,0" Height="23" Name="textBoxName" Width="120" />
+                    <TextBox Text="{Binding Name, Mode=TwoWay}" Margin="90,0,10,0" Height="23" Name="textBoxName" Width="120" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left" Width="278">
                     <Label Style="{StaticResource element}" Margin="10,0,10,0" Content="Prénom" Height="28" Name="labelSurname" />
-                    <TextBox Margin="73,0,10,0" Height="23" Name="textBoxSurname" Width="120" />
+                    <TextBox Text="{Binding Firstname, Mode=TwoWay}" Margin="73,0,10,0" Height="23" Name="textBoxSurname" Width="120" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left" Width="279">
                     <Label Style="{StaticResource element}" Margin="10,0,10,0" Content="Date de naissance" Height="28" Width="115" Name="labelBirthdate" />
-                    <TextBox Margin="12,0,10,0" Height="23" Name="textBoxBirthdate" Width="120" />
+                    <TextBox Text="{Binding Birthday, Mode=TwoWay}" Margin="12,0,10,0" Height="23" Name="textBoxBirthdate" Width="120" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Content="" Name="labelStatus" />
+                    <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Name="labelStatus" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Ajouter patient" Height="23" Name="buttonPatientAdd" Width="105" />
+                    <Button Content="Ajouter patient" Height="28" Name="buttonPatientAdd" Width="105" Command="{Binding CreateCommand}"/>
                 </StackPanel>
 
             </StackPanel>
