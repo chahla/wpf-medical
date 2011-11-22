@@ -7,7 +7,7 @@
       d:DesignHeight="650" d:DesignWidth="750"
 	Title="PatientDeleteView">
     <Page.Resources>
-        <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
+        <DropShadowEffect x:Key="dropShadow" Color="Gray"  BlurRadius="15" Direction="315" />
         <Style TargetType="Page">
             <Setter Property="Background" Value="Beige" />
         </Style>
