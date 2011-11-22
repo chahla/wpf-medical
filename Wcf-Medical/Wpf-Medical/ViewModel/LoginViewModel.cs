@@ -257,29 +257,3 @@ namespace Wpf_Medical.ViewModel
         }
     }
 }
-
-///
-// SERVICELIVE
-// CODE MORT
-///
-/*class MyCallback : Wpf_Medical.ServiceLive.IServiceLiveCallback
-{
-    public MyCallback()
-    {
-    }
-
-    public void PushDataHeart(double requestData)
-    {
-        Debug.WriteLine(requestData);
-    }
-
-    public void PushDataTemp(double requestData)
-    {
-        Debug.WriteLine(requestData);
-    }
-    
-}*/
-///
-// SERVICELIVE
-// CODE MORT
-///

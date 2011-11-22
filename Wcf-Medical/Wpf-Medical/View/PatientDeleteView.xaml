@@ -43,17 +43,18 @@
             <StackPanel Margin="30,20,0,0">
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Label Style="{StaticResource element}" Content="Nom" Name="labelName" />
-                    <Label Margin="72,0,0,0" Content="Label" Name="labelNamesend" />
+                    <Label Margin="72,0,0,0" Content="{Binding Name, Mode=TwoWay}" Name="labelNamesend" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Label Style="{StaticResource element}" Content="Prénom" Name="labelSurname" />
-                    <Label Margin="56,0,0,0" Content="Label" Name="labelSurnamesend" />
+                    <Label Margin="56,0,0,0" Content="{Binding Firstname, Mode=TwoWay}" Name="labelSurnamesend" />
                 </StackPanel>
                 <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Label Style="{StaticResource element}" Content="Date de naissance" Name="labelBirthdate" />
-                    <Label Content="Label" Name="labelBirthdatesend" />
+                    <Label Content="{Binding Birthday, Mode=TwoWay}" Name="labelBirthdatesend" />
                 </StackPanel>
-                <Button Margin="10" Content="Supprimer" Height="23" Name="buttonPatientDelete" Width="75" />
+                <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Margin="10" HorizontalAlignment="Center" Name="labelStatus" />
+                <Button Margin="10" Content="Supprimer" Height="23" Name="buttonPatientDelete" Width="75" Command="{Binding DeleteCommand}"/>
             </StackPanel>
         </StackPanel>
        

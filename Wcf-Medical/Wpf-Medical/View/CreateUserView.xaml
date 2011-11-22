@@ -63,7 +63,8 @@
                             </StackPanel>
                         
                         </StackPanel>
-                        <Button Content="Valider l'inscription" Command="{Binding CreateCommand}" Margin="50" Height="29" HorizontalAlignment="Center" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
+                        <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" />
+                        <Button Content="Valider l'inscription" Command="{Binding CreateCommand}" Margin="25" Height="29" HorizontalAlignment="Center" Name="buttonAdduser" VerticalAlignment="Top" Width="171" FontSize="14" FontWeight="Bold" />
                     </StackPanel>
                 </Grid>
             </GroupBox>

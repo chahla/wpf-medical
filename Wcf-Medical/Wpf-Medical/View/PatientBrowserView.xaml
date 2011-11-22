@@ -51,7 +51,7 @@
                 <GroupBox Header="Sélection Patient" Height="401" HorizontalAlignment="Left" Margin="10" Name="groupBoxPatientselect" VerticalAlignment="Top" Width="197">
                     <Grid>
                         <StackPanel Orientation="Vertical">
-                            <Button Content="Ajouter un patient" Height="30" Margin="10" Name="buttonAddpatient" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" />
+                            <Button Content="Ajouter un patient" Height="30" Margin="10" Name="buttonAddpatient" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" Command="{Binding AddPatientCommand}"/>
                             <ListBox Margin="10" Name="listBoxPatient" Height="310" />
                         </StackPanel>
                     </Grid>
