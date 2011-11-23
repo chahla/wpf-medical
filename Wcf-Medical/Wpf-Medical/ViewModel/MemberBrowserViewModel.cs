@@ -17,7 +17,13 @@ namespace Wpf_Medical.ViewModel
         private NavigationService _ns = null;
 
         #region Commandes
-        public ICommand ClickCommand { get; set; }
+        private ICommand _navigateToHomeCommand;
+
+        public ICommand NavigateToHomeCommand
+        {
+            get { return _navigateToHomeCommand; }
+            set { _navigateToHomeCommand = value; }
+        }
         #endregion
 
         ObservableCollection<ServiceUser.User> _listUser = null;
@@ -32,8 +38,6 @@ namespace Wpf_Medical.ViewModel
             }
         }
 
-
-
         /// <summary>
         /// constructeur
         /// </summary>
@@ -41,7 +45,7 @@ namespace Wpf_Medical.ViewModel
         {
             _linkedView = lkView;
 
-            ClickCommand = new RelayCommand(param => Click(), param => true);
+            _navigateToHomeCommand = new RelayCommand(param => NavigateToHome(), param => true);
 
             _listUser = new ObservableCollection<ServiceUser.User>();
 
@@ -87,9 +91,10 @@ namespace Wpf_Medical.ViewModel
         /// <summary>
         /// réponse à la commande click
         /// </summary>
-        private void Click()
+        private void NavigateToHome()
         {
-
+            _ns = NavigationService.GetNavigationService(_linkedView);
+            _ns.GoBack();
         }
     }
 }

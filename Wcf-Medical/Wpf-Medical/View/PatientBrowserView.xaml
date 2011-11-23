@@ -68,7 +68,7 @@
                         <Grid>
                             <StackPanel Orientation="Vertical">
                                 <Button Visibility="{Binding IsAvailableRW}" Content="Ajouter un patient" Height="30" Margin="10" Name="buttonAddpatient" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" Command="{Binding AddPatientCommand}"/>
-                                <ListBox Margin="10" Name="listBoxPatient" Height="310" ItemsSource="{Binding ListPatient}" ItemTemplate="{StaticResource PatientListRenderer}"/>
+                                <ListBox SelectedItem="{Binding SelectedPatient}" Margin="10" Name="listBoxPatient" Height="310" ItemsSource="{Binding ListPatient}" ItemTemplate="{StaticResource PatientListRenderer}"/>
                             </StackPanel>
                         </Grid>
                     </GroupBox>
@@ -93,7 +93,7 @@
                                     </StackPanel>
 
                                     <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="10">
-                                        <Button Visibility="{Binding IsAvailableRW}" Content="Supprimer ce profil" Height="29" HorizontalAlignment="Left" Name="buttonDeleteprofile" VerticalAlignment="Top" Width="116" FontFamily="Arial Unicode MS" />
+                                        <Button Command="{Binding DeletePatientCommand}" CommandParameter="{Binding ElementName=listBoxPatient, Path=SelectedItem.Id}" Visibility="{Binding IsAvailableRW}" Content="Supprimer ce profil" Height="29" HorizontalAlignment="Left" Name="buttonDeleteprofile" VerticalAlignment="Top" Width="116" FontFamily="Arial Unicode MS" />
                                     </StackPanel>
                                 </StackPanel>
                             
@@ -102,8 +102,8 @@
                                 <DataGrid x:Name="observationDataGridUI" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=listBoxPatient, Path=SelectedItem.Observations}">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
-                                        <DataGridTextColumn Header="Poids" Binding="{Binding Weight}"  Width="*"/>
-                                        <DataGridTextColumn Header="Pression sanguine" Binding="{Binding BloodPressure}" Width="*"/>
+                                        <DataGridTextColumn Header="Poids (en Kg)" Binding="{Binding Weight}"  Width="Auto"/>
+                                        <DataGridTextColumn Header="Pression artérielle (en cmHg)" Binding="{Binding BloodPressure}" Width="Auto"/>
                                     </DataGrid.Columns>
                                     <DataGrid.RowDetailsTemplate>
                                         <DataTemplate>

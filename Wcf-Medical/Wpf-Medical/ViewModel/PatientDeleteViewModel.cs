@@ -95,7 +95,7 @@ namespace Wpf_Medical.ViewModel
         /// <summary>
         /// constructeur
         /// </summary>
-        public PatientDeleteViewModel(Page lkView)
+        public PatientDeleteViewModel(Page lkView, int idpatient)
         {
             _linkedView = lkView;
 

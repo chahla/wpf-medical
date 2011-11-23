@@ -3,22 +3,44 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:localproj="clr-namespace:Wpf_Medical"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="PatientPictureView">
     <Page.Resources>
-        <ResourceDictionary Source="Template.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Template.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <localproj:ByteArrayToImageListConverter x:Key="byteArrayConverter"/>
+        </ResourceDictionary>
     </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
         
             <StackPanel Orientation="Horizontal">
-                <Label Style="{StaticResource Title}" Content="Images du patient" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelTitle" VerticalAlignment="Top" Width="355" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Unicode MS" />
-                <Label Style="{StaticResource element}" Content="Label" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelPatientname" VerticalAlignment="Top" Width="315" FontSize="20" FontFamily="Arial Unicode MS" HorizontalContentAlignment="Center" />
+                <Button Command="{Binding NavigateToBrowserPatientCommand}" Content="Revenir a la gestion des patients" Width="auto" Height="auto" HorizontalAlignment="Left"/>
+                <Label Style="{StaticResource Title}" Content="Images du patient :" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelTitle" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Unicode MS" />
+                <!--propriete du label du dessus Width="355"-->
+                <Label Style="{StaticResource element}" HorizontalContentAlignment="Left" Content="Label" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelPatientname" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />
+                <!--propriete du label du dessus Width="315"-->
             </StackPanel>
             
-            <ScrollViewer Height="288" HorizontalAlignment="Left" Margin="10" Name="scrollViewer1" VerticalAlignment="Top" Width="676" />               
-        
+            <ScrollViewer Height="288" HorizontalAlignment="Left" Margin="10" Name="scrollViewer1" VerticalAlignment="Top" Width="676">
+                <ListBox ItemsSource="{Binding Path=ListImages, Converter={StaticResource byteArrayConverter}}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}" Width="100" Height="100"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </ScrollViewer>
+            
             <Button Content="Ajouter une image" Margin="10" Height="41" Name="button1" Width="162" FontSize="16" FontFamily="Arial Unicode MS" />
         </StackPanel>
     </Grid>

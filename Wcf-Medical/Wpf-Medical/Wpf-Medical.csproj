@@ -59,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="BoolConverter.cs" />
     <Compile Include="ByteArrayConverter.cs" />
+    <Compile Include="ByteArrayToImageListConverter.cs" />
     <Compile Include="MainContainer.xaml.cs">
       <DependentUpon>MainContainer.xaml</DependentUpon>
     </Compile>
