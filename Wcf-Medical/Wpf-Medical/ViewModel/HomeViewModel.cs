@@ -18,6 +18,7 @@ namespace Wpf_Medical.ViewModel
         private ICommand managePatientCommand;
         private ICommand manageObservationCommand;
         private ICommand manageImageCommand;
+        private ICommand _createCommand;        
         #endregion
 
         public ICommand ManageUserCommand
@@ -44,6 +45,12 @@ namespace Wpf_Medical.ViewModel
             set { manageImageCommand = value; }
         }
 
+        public ICommand CreateCommand
+        {
+            get { return _createCommand; }
+            set { _createCommand = value; }
+        }
+
         /// <summary>
         /// constructeur
         /// </summary>
@@ -55,6 +62,7 @@ namespace Wpf_Medical.ViewModel
             managePatientCommand = new RelayCommand(param => ClickPatient(), param => true);
             manageObservationCommand = new RelayCommand(param => ClickObservation(), param => true);
             manageImageCommand = new RelayCommand(param => ClickImage(), param => true);
+            _createCommand = new RelayCommand(param => ClickCreate(), param => true);
         }
 
         private void ClickUser()
@@ -83,6 +91,19 @@ namespace Wpf_Medical.ViewModel
             ViewModel.ObservationTableViewModel vm = new ObservationTableViewModel(window);
             window.DataContext = vm;
 
+            _ns = NavigationService.GetNavigationService(_linkedView);
+            _ns.Navigate(window);
+        }
+
+        private void ClickCreate()
+        {
+            View.CreateUserView window = new View.CreateUserView();
+            ViewModel.CreateUserViewModel vm = new CreateUserViewModel(window);
+            window.DataContext = vm;
+
+            /// Afin de pouvoir naviguer entre les pages mais que les ViewModel ne savent pas 
+            /// du tout qui elles sont liees, on garde une trace de la page liee UNIQUEMENT 
+            /// pour avoir acces a son navigation service
             _ns = NavigationService.GetNavigationService(_linkedView);
             _ns.Navigate(window);
         }

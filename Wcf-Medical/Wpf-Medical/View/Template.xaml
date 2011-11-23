@@ -28,11 +28,19 @@
         <Setter Property="Foreground" Value="DarkOliveGreen" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
+    
     <Storyboard x:Key="OnClick1">
         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="page">
             <EasingDoubleKeyFrame KeyTime="0" Value="5"/>
             <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="3"/>
             <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <Storyboard x:Key="Storyboard1">
+        <DoubleAnimation Storyboard.TargetName="ellipse" Duration="00:00:01" From="0" To="1" Storyboard.TargetProperty="Opacity" />
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipse" RepeatBehavior="Forever" >
+            <EasingDoubleKeyFrame KeyTime="0:0:1" Value="359"/>
         </DoubleAnimationUsingKeyFrames>
     </Storyboard>
 
