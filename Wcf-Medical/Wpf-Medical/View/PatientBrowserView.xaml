@@ -52,81 +52,84 @@
         <projlocal:StringArrayConverter x:Key="stringArrayConverter" />
     </Page.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel Orientation="Vertical">
-                <Label Style="{StaticResource Title}" Content="Rechercher un patient" Height="36" HorizontalAlignment="Left" Margin="10" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
-                <Label Style="{StaticResource Subtitle}" Content="Entrer son nom ou prénom" Height="28" HorizontalAlignment="Left" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" />
+        <StackPanel Orientation="Vertical">
+            <Button Command="{Binding NavigateToHomeCommand}" Content="Revenir à l'accueil" Width="auto" Height="auto" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <Label Style="{StaticResource Title}" Content="Rechercher un patient" Height="36" HorizontalAlignment="Left" Margin="10" Name="labelTitle" VerticalAlignment="Top" FontSize="16" FontFamily="Arial Unicode MS" FontWeight="Bold" />
+                    <Label Style="{StaticResource Subtitle}" Content="Entrer son nom ou prénom" Height="28" HorizontalAlignment="Left" Margin="10" Name="labelSubtitle" VerticalAlignment="Top" />
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="10,0,10,0" Name="textBoxSearch" VerticalAlignment="Top" Width="120" />
-                    <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="10,0,0,0" Name="buttonSearch" VerticalAlignment="Top" Width="54" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Height="23" HorizontalAlignment="Left" Margin="10,0,10,0" Name="textBoxSearch" VerticalAlignment="Top" Width="120" />
+                        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="10,0,0,0" Name="buttonSearch" VerticalAlignment="Top" Width="54" />
+                    </StackPanel>
+
+                    <GroupBox Header="Sélection Patient" Height="401" HorizontalAlignment="Left" Margin="10" Name="groupBoxPatientselect" VerticalAlignment="Top" Width="197">
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <Button Visibility="{Binding IsAvailableRW}" Content="Ajouter un patient" Height="30" Margin="10" Name="buttonAddpatient" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" Command="{Binding AddPatientCommand}"/>
+                                <ListBox Margin="10" Name="listBoxPatient" Height="310" ItemsSource="{Binding ListPatient}" ItemTemplate="{StaticResource PatientListRenderer}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
                 </StackPanel>
 
-                <GroupBox Header="Sélection Patient" Height="401" HorizontalAlignment="Left" Margin="10" Name="groupBoxPatientselect" VerticalAlignment="Top" Width="197">
-                    <Grid>
-                        <StackPanel Orientation="Vertical">
-                            <Button Visibility="{Binding IsAvailableRW}" Content="Ajouter un patient" Height="30" Margin="10" Name="buttonAddpatient" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" Command="{Binding AddPatientCommand}"/>
-                            <ListBox SelectedItem="{Binding CurrentPatient, Mode=TwoWay}" Margin="10" Name="listBoxPatient" Height="310" ItemsSource="{Binding ListPatient}" ItemTemplate="{StaticResource PatientListRenderer}"/>
-                        </StackPanel>
-                    </Grid>
-                </GroupBox>
-            </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <GroupBox Header="Gestion Patient" Height="523" Margin="0,15,0,0" HorizontalAlignment="Left" Name="groupBoxPatientmanager" VerticalAlignment="Top" Width="402">
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
-            <StackPanel Orientation="Vertical">
-                <GroupBox Header="Gestion Patient" Height="523" Margin="0,15,0,0" HorizontalAlignment="Left" Name="groupBoxPatientmanager" VerticalAlignment="Top" Width="402">
-                    <Grid>
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <StackPanel Orientation="Vertical" Margin="10">
+                                        <Label Style="{StaticResource element}" Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                                        <Label Style="{StaticResource element}" Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                                        <Label Style="{StaticResource element}" Content="Date de naissance" Height="28" HorizontalAlignment="Left"  Name="labelBirthdate" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                                    </StackPanel>
 
-                                <StackPanel Orientation="Vertical" Margin="10">
-                                    <Label Style="{StaticResource element}" Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                                    <Label Style="{StaticResource element}" Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
-                                    <Label Style="{StaticResource element}" Content="Date de naissance" Height="28" HorizontalAlignment="Left"  Name="labelBirthdate" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
+                                    <StackPanel Orientation="Vertical" Margin="10">
+                                        <Label Content="{Binding ElementName=listBoxPatient, Path=SelectedItem.Name}" Height="28" HorizontalAlignment="Left" Name="labelNamesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                        <Label Content="{Binding ElementName=listBoxPatient, Path=SelectedItem.Firstname}" Height="28" HorizontalAlignment="Left" Name="labelSurnamesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                        <Label Content="{Binding ElementName=listBoxPatient, Path=SelectedItem.Birthday}" Height="28" HorizontalAlignment="Left" Name="labelBirthdatesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="10">
+                                        <Button Visibility="{Binding IsAvailableRW}" Content="Supprimer ce profil" Height="29" HorizontalAlignment="Left" Name="buttonDeleteprofile" VerticalAlignment="Top" Width="116" FontFamily="Arial Unicode MS" />
+                                    </StackPanel>
                                 </StackPanel>
+                            
+                                <Separator Height="23" HorizontalAlignment="Left" Margin="10" Name="separator1" VerticalAlignment="Top" Width="378" />
 
-                                <StackPanel Orientation="Vertical" Margin="10">
-                                    <Label Content="{Binding ElementName=listBoxPatient, Path=SelectedItem.Name}" Height="28" HorizontalAlignment="Left" Name="labelNamesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                    <Label Content="{Binding ElementName=listBoxPatient, Path=SelectedItem.Firstname}" Height="28" HorizontalAlignment="Left" Name="labelSurnamesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                    <Label Content="{Binding ElementName=listBoxPatient, Path=SelectedItem.Birthday}" Height="28" HorizontalAlignment="Left" Name="labelBirthdatesend" VerticalAlignment="Top" FontFamily="Arial Unicode MS" />
-                                </StackPanel>
-
-                                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="10">
-                                    <Button Visibility="{Binding IsAvailableRW}" Content="Supprimer ce profil" Height="29" HorizontalAlignment="Left" Name="buttonDeleteprofile" VerticalAlignment="Top" Width="116" FontFamily="Arial Unicode MS" />
-                                </StackPanel>
+                                <DataGrid x:Name="observationDataGridUI" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=listBoxPatient, Path=SelectedItem.Observations}">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
+                                        <DataGridTextColumn Header="Poids" Binding="{Binding Weight}"  Width="*"/>
+                                        <DataGridTextColumn Header="Pression sanguine" Binding="{Binding BloodPressure}" Width="*"/>
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowDetailsTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="{Binding Comment}" Height="100" Width="200"/>
+                                                <TextBlock Text="{Binding Prescription, Converter={StaticResource stringArrayConverter}}" Height="100" Width="200"/>
+                                                <!--Il est 1h05 du matin et la ligne du dessous est la chose dont je sois le plus fier depuis 
+                                                que j'ai touve comment mixer le mvvm et le NavigationWindow -laurent garcin, 2011- -->
+                                                <Button Content="Voir/ajouter les images (Radios/Graphiques)" 
+                                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.ImageCommand}" 
+                                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Parent.DataContext.Pictures}" 
+                                                        Height="34" 
+                                                        HorizontalAlignment="Center" 
+                                                        Name="buttonViewimage" 
+                                                        Width="258" 
+                                                        FontFamily="Arial Unicode MS" 
+                                                        FontSize="14" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGrid.RowDetailsTemplate>
+                                </DataGrid>
+                            
                             </StackPanel>
-                            
-                            <Separator Height="23" HorizontalAlignment="Left" Margin="10" Name="separator1" VerticalAlignment="Top" Width="378" />
-
-                            <DataGrid x:Name="observationDataGridUI" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=listBoxPatient, Path=SelectedItem.Observations}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
-                                    <DataGridTextColumn Header="Poids" Binding="{Binding Weight}"  Width="*"/>
-                                    <DataGridTextColumn Header="Pression sanguine" Binding="{Binding BloodPressure}" Width="*"/>
-                                </DataGrid.Columns>
-                                <DataGrid.RowDetailsTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Vertical">
-                                            <TextBlock Text="{Binding Comment}" Height="100" Width="200"/>
-                                            <TextBlock Text="{Binding Prescription, Converter={StaticResource stringArrayConverter}}" Height="100" Width="200"/>
-                                            <!--Il est 1h05 du matin et la ligne du dessous est la chose dont je sois le plus fier depuis 
-                                            que j'ai touve comment mixer le mvvm et le NavigationWindow -laurent garcin, 2011- -->
-                                            <Button Content="Voir/ajouter les images (Radios/Graphiques)" 
-                                                    Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.ImageCommand}" 
-                                                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Parent.DataContext.Pictures}" 
-                                                    Height="34" 
-                                                    HorizontalAlignment="Center" 
-                                                    Name="buttonViewimage" 
-                                                    Width="258" 
-                                                    FontFamily="Arial Unicode MS" 
-                                                    FontSize="14" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGrid.RowDetailsTemplate>
-                            </DataGrid>
-                            
-                        </StackPanel>
-                    </Grid>
-                </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

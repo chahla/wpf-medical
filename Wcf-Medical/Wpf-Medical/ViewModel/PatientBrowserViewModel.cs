@@ -43,8 +43,15 @@ namespace Wpf_Medical.ViewModel
         }
 
         private ICommand _createObservationCommand;
-
         private ICommand _imageCommand;
+        private ICommand _navigateToHomeCommand;
+
+        public ICommand NavigateToHomeCommand
+        {
+            get { return _navigateToHomeCommand; }
+            set { _navigateToHomeCommand = value; }
+        }
+
 
         public ICommand ImageCommand
         {
@@ -83,8 +90,8 @@ namespace Wpf_Medical.ViewModel
             _imageCommand = new RelayCommand(param => ImageAccess(param), param => true);
 
             _createObservationCommand = new RelayCommand(param => CreateObservationClick(), param => true);
-
             _addPatientCommand = new RelayCommand(param => ClickAddPatient(), param => IsAllowed());
+            _navigateToHomeCommand = new RelayCommand(param => NavigateToHome(), param => true);
 
             /// Definit si les bouton de creation/suppression est disponible ou non
             if (NavigationMessenger.GetInstance().IsRWAccount) {
@@ -165,6 +172,12 @@ namespace Wpf_Medical.ViewModel
         private void CreateObservationClick()
         {
 
+        }
+
+        private void NavigateToHome()
+        {
+            _ns = NavigationService.GetNavigationService(_linkedView);
+            _ns.GoBack();
         }
 
         private void ImageAccess(object obj)
