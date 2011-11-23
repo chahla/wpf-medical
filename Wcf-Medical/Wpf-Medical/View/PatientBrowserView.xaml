@@ -65,7 +65,7 @@
                 <GroupBox Header="Sélection Patient" Height="401" HorizontalAlignment="Left" Margin="10" Name="groupBoxPatientselect" VerticalAlignment="Top" Width="197">
                     <Grid>
                         <StackPanel Orientation="Vertical">
-                            <Button Visibility="{Binding IsAvailableRW}" Content="Ajouter un patient" Height="30" Margin="10" Name="buttonAddpatient" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" />
+                            <Button Visibility="{Binding IsAvailableRW}" Content="Ajouter un patient" Height="30" Margin="10" Name="buttonAddpatient" FontSize="14" FontFamily="Arial Unicode MS" FontWeight="Bold" Command="{Binding AddPatientCommand}"/>
                             <ListBox SelectedItem="{Binding CurrentPatient, Mode=TwoWay}" Margin="10" Name="listBoxPatient" Height="310" ItemsSource="{Binding ListPatient}" ItemTemplate="{StaticResource PatientListRenderer}"/>
                         </StackPanel>
                     </Grid>
@@ -97,8 +97,6 @@
                             
                             <Separator Height="23" HorizontalAlignment="Left" Margin="10" Name="separator1" VerticalAlignment="Top" Width="378" />
 
-                            <Button Command="{Binding Path=ImageCommand}" Content="test"/>
-                            
                             <DataGrid x:Name="observationDataGridUI" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=listBoxPatient, Path=SelectedItem.Observations}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>

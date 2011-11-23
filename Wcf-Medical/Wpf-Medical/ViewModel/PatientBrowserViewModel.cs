@@ -58,11 +58,19 @@ namespace Wpf_Medical.ViewModel
             set { _createObservationCommand = value; }
         }
 
+        private ICommand _addPatientCommand;
+
 
         public ObservableCollection<ServicePatient.Patient> ListPatient
         {
             get { return _listPatient; }
             set { _listPatient = value; }
+        }
+
+        public ICommand AddPatientCommand
+        {
+            get { return _addPatientCommand; }
+            set { _addPatientCommand = value; }
         }
 
         /// <summary>
@@ -76,6 +84,7 @@ namespace Wpf_Medical.ViewModel
 
             _createObservationCommand = new RelayCommand(param => CreateObservationClick(), param => true);
 
+            _addPatientCommand = new RelayCommand(param => ClickAddPatient(), param => IsAllowed());
 
             /// Definit si les bouton de creation/suppression est disponible ou non
             if (NavigationMessenger.GetInstance().IsRWAccount) {
@@ -130,6 +139,24 @@ namespace Wpf_Medical.ViewModel
 
             worker.RunWorkerAsync();
 
+        }
+
+        private bool IsAllowed()
+        {
+            return true;
+        }
+
+        private void ClickAddPatient()
+        {
+            View.PatientAddView window = new View.PatientAddView();
+            ViewModel.PatientAddViewModel vm = new PatientAddViewModel(window);
+            window.DataContext = vm;
+
+            /// Afin de pouvoir naviguer entre les pages mais que les ViewModel ne savent pas 
+            /// du tout qui elles sont liees, on garde une trace de la page liee UNIQUEMENT 
+            /// pour avoir acces a son navigation service
+            _ns = NavigationService.GetNavigationService(_linkedView);
+            _ns.Navigate(window);
         }
 
         /// <summary>
