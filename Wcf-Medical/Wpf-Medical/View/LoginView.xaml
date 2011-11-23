@@ -7,40 +7,7 @@
       d:DesignHeight="650" d:DesignWidth="750"
 	Title="LoginView" ShowsNavigationUI="False">
     <Page.Resources>
-        <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
-        <Style TargetType="Page">
-            <Setter Property="Background" Value="Beige" />
-        </Style>
-
-        <Style x:Key="Title" TargetType="Label">
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Foreground" Value="Firebrick" />
-            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
-        </Style>
-        <Style x:Key="Subtitle" TargetType="Label">
-            <Setter Property="Foreground" Value="RoyalBlue" />
-            <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
-        </Style>
-        <Style x:Key="element" TargetType="Label">
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Foreground" Value="Firebrick" />
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="FontWeight" Value="Heavy" />
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="Azure" />
-            <Setter Property="Foreground" Value="DarkOliveGreen" />
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-        <Storyboard x:Key="OnClick1">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="page">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="5"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="3"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
-        	</DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+        <ResourceDictionary Source="Template.xaml" />        
     </Page.Resources>
     <Page.Effect>
         <BlurEffect />
@@ -52,6 +19,9 @@
         </EventTrigger>
         <EventTrigger RoutedEvent="FrameworkElement.Unloaded">
         	<BeginStoryboard Storyboard="{StaticResource OnClick1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="buttonConnection">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
         </EventTrigger>
     </Page.Triggers>
 
@@ -66,10 +36,25 @@
                     <Label Style="{StaticResource element}" Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="67,79,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="215,84,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="121" Text="{Binding Password, Mode=TwoWay}"/>
                     <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="124,124,124,58"/>
+                    <Ellipse x:Name="ellipse"  StrokeThickness="5" RenderTransformOrigin="0.5,0.5" Width="20" Height="20" Margin="302,170,109,20" Opacity="0">
+                        <Ellipse.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Ellipse.RenderTransform>
+                        <Ellipse.Stroke>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF00D6FF" Offset="0"/>
+                                <GradientStop Color="#FF00FF56" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Stroke>
+                    </Ellipse>
                     <Button Content="Se connecter" Height="29" HorizontalAlignment="Left" Margin="158,167,0,0" Name="buttonConnection" VerticalAlignment="Top" Width="114" FontWeight="Bold" Command="{Binding ConnectCommand}"/>
                 </Grid>
             </GroupBox>
-            <Button Content="Créer son compte utilisateur" Height="48" Margin="40" HorizontalAlignment="Center" Name="buttonCreateuser" VerticalAlignment="Top" Width="448" FontSize="20" Command="{Binding CreateCommand}"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -6,34 +6,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="700"
 	Title="PatientPictureView">
-<Page.Resources>
-        <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
-        <Style TargetType="Page">
-            <Setter Property="Background" Value="Beige" />
-        </Style>
-
-        <Style x:Key="Title" TargetType="Label">
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Foreground" Value="Firebrick" />
-            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
-        </Style>
-        <Style x:Key="Subtitle" TargetType="Label">
-            <Setter Property="Foreground" Value="RoyalBlue" />
-            <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
-        </Style>
-        <Style x:Key="element" TargetType="Label">
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Foreground" Value="Firebrick" />
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="FontWeight" Value="Heavy" />
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="Azure" />
-            <Setter Property="Foreground" Value="DarkOliveGreen" />
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
+    <Page.Resources>
+        <ResourceDictionary Source="Template.xaml" />
     </Page.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">

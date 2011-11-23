@@ -17,9 +17,9 @@ namespace Wpf_Medical.View
     /// <summary>
     /// Logique d'interaction pour PaientAddView.xaml
     /// </summary>
-    public partial class PaientAddView : Page
+    public partial class PatientAddView : Page
     {
-        public PaientAddView()
+        public PatientAddView()
         {
             InitializeComponent();
         }
