@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
+    <Style TargetType="Page">
+        <Setter Property="Background" Value="Beige" />
+    </Style>
+
+    <Style x:Key="Title" TargetType="Label">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="Firebrick" />
+        <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+    </Style>
+    <Style x:Key="Subtitle" TargetType="Label">
+        <Setter Property="Foreground" Value="RoyalBlue" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+    </Style>
+    <Style x:Key="element" TargetType="Label">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="Firebrick" />
+    </Style>
+    <Style TargetType="Label">
+        <Setter Property="FontWeight" Value="Heavy" />
+    </Style>
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="Azure" />
+        <Setter Property="Foreground" Value="DarkOliveGreen" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    <Storyboard x:Key="OnClick1">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="page">
+            <EasingDoubleKeyFrame KeyTime="0" Value="5"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="3"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+</ResourceDictionary>
