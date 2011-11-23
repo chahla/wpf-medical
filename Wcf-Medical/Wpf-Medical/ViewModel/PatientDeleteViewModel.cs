@@ -28,7 +28,7 @@ namespace Wpf_Medical.ViewModel
         private string _name;
         private string _firstname;
         private DateTime _birthday;
-               
+        private int _id;       
 
         private string _waitingMessage;
 
@@ -84,6 +84,12 @@ namespace Wpf_Medical.ViewModel
             }
         }
 
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
         private bool _isdeleting;
 
         public bool Isdeleting
@@ -101,12 +107,11 @@ namespace Wpf_Medical.ViewModel
 
             _deleteCommand = new RelayCommand(param => Delete(), param => IsDeleting());
             
-            ///
-            // ICI IL FAUT AJOUTE RUN NAVIGATION MESSENGER POUR GERER LE PATIENT SELECTIONNE
-            ///
+            _id = idpatient;
 
-            ServicePatient.Patient selectedpatient = null;//NavigationMessenger.GetInstance().TransitCreatedUser;
-
+            ServicePatient.ServicePatientClient servicePatient = new ServicePatient.ServicePatientClient();
+            ServicePatient.Patient selectedpatient = servicePatient.GetPatient(_id);
+            
             _name = selectedpatient.Name;
             _firstname = selectedpatient.Firstname;
             _birthday = selectedpatient.Birthday;
@@ -132,7 +137,7 @@ namespace Wpf_Medical.ViewModel
                 _isdeleting = true;
 
                 BackgroundWorker bg = s as BackgroundWorker;
-                e.Result = servicePatient.DeletePatient(1);
+                e.Result = servicePatient.DeletePatient(_id);
             });
 
             // TODO penser a mettre un comportement en fonction des differents cas notamment en cas de fail
@@ -145,16 +150,19 @@ namespace Wpf_Medical.ViewModel
                 if (e.Cancelled)
                 {
                     Debug.WriteLine("CANCELLED");
+                    WaitingMessage = "L'opération a été annulée.";
                 }
                 if (e.Error != null)
                 {
                     Debug.WriteLine("ERROR");
+                    WaitingMessage = "Erreur lors de la suppression : " + e.Error.Message;
                 }
                 bool? res = e.Result as bool?;
 
                 if (res == null)
                 {
                     Debug.WriteLine("ERREUR COTE SERVEUR");
+                    WaitingMessage = "Erreur côté serveur lors de la suppression. Veuillez recommencer";
                 }
                 if (res == true)
                 {
@@ -171,6 +179,7 @@ namespace Wpf_Medical.ViewModel
                 else
                 {
                     Debug.WriteLine("ECHEC DE LA SUPPRESSION");
+                    WaitingMessage = "La suppression a échoué. Veuillez recommencer.";
                 }
             });
 

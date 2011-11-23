@@ -35,7 +35,7 @@
                     <TextBox Height="23" HorizontalAlignment="Right" Margin="0,38,95,0" Name="textBoxLogin" VerticalAlignment="Top" Width="120" Text="{Binding Login, Mode=TwoWay}"/>
                     <Label Style="{StaticResource element}" Content="Mot de passe" Height="28" HorizontalAlignment="Left" Margin="67,79,0,0" Name="labelPassword" VerticalAlignment="Top" FontSize="14" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="215,84,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="121" Text="{Binding Password, Mode=TwoWay}"/>
-                    <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="124,124,124,58"/>
+                    <Label Content="{Binding WaitingMessage, Mode=TwoWay}" Height="28" HorizontalAlignment="Center" Margin="0,124,0,58"/>
                     <Ellipse x:Name="ellipse"  StrokeThickness="5" RenderTransformOrigin="0.5,0.5" Width="20" Height="20" Margin="302,170,109,20" Opacity="0">
                         <Ellipse.RenderTransform>
                             <TransformGroup>
