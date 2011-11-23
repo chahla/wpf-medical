@@ -199,13 +199,18 @@ namespace Wpf_Medical.ViewModel
                 EndWaitingSequence();
                 _ischecking = false;
                 // TODO voir le CreateUserViewModel pour l'implementation erreur
-                if (e.Cancelled) {
+                if (e.Cancelled)
+                {
+                    WaitingMessage = "L'opération a été annulée.";
                 }
-                if (e.Error != null) {
+                if (e.Error != null)
+                {
+                    WaitingMessage = "Erreur lors de l'authentification : " + e.Error.Message;
                 }
                 bool? res = e.Result as bool?;
                 if (res == null)
                 {
+                    WaitingMessage = "Erreur côté serveur lors de l'authentification. Veuillez recommencer";
                 }
                 if (res == true)
                 {
@@ -223,6 +228,7 @@ namespace Wpf_Medical.ViewModel
                 }
                 else {
                     Debug.WriteLine("NON ENREGISTRE");
+                    WaitingMessage = "Erreur de login ou mot de passe.";
                 }
             });
 
@@ -235,18 +241,21 @@ namespace Wpf_Medical.ViewModel
             {
                 if (e.Cancelled)
                 {
+                    WaitingMessage = "L'opération a été annulée.";
                 }
                 if (e.Error != null)
                 {
+                    WaitingMessage = "Erreur lors de l'authentification : " + e.Error.Message;
                 }
                 string res = e.Result as string;
                 if (res == null)
                 {
+                    WaitingMessage = "Erreur côté serveur lors de l'authentification. Veuillez recommencer";
                 }
                 if ((res == "Chirurgien") || (res == "Medecin") || (res == "Radiologue")) {
                     NavigationMessenger.GetInstance().IsRWAccount = true;
                 }
-                else {
+                else {                    
                     NavigationMessenger.GetInstance().IsRWAccount = false;
                 }
             });
