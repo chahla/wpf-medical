@@ -84,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ServiceLiveCallback.cs" />
     <Compile Include="StringArrayConverter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="App.xaml.cs">
@@ -98,6 +99,7 @@
     <Compile Include="ViewModel\ObservationTableViewModel.cs" />
     <Compile Include="ViewModel\PatientAddViewModel.cs" />
     <Compile Include="ViewModel\PatientBrowserViewModel.cs" />
+    <Compile Include="ViewModel\PatientDeleteViewModel.cs" />
     <Compile Include="ViewModel\PatientPictureViewModel.cs" />
     <Compile Include="ViewModel\PictureManager1ViewModel.cs" />
     <Compile Include="ViewModel\PictureManager2ViewModel.cs" />
