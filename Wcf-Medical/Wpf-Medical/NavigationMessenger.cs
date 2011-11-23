@@ -26,8 +26,9 @@ namespace Wpf_Medical
         private ServiceUser.User _transitCreatedUser;
 
         /// <summary>
-        /// Ce booleen mis a jour a chaque connexion indique si l'utilisateur connecte 
+        /// Ce booleen mis a jour a chaque connexion et indique si l'utilisateur connecte 
         /// a les droits de creation/suppression on le recupere en fonction du role
+        /// De base il est a false afin de renforcer la securite
         /// </summary>
         private bool _isRWAccount;
 
