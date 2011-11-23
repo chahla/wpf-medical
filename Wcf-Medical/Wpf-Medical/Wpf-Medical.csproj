@@ -95,6 +95,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MemberBrowserViewModel.cs" />
     <Compile Include="ViewModel\ObservationTableViewModel.cs" />
+    <Compile Include="ViewModel\PatientAddViewModel.cs" />
     <Compile Include="ViewModel\PatientBrowserViewModel.cs" />
     <Compile Include="ViewModel\PatientPictureViewModel.cs" />
     <Compile Include="ViewModel\PictureManager1ViewModel.cs" />
@@ -117,8 +118,14 @@
     <Compile Include="View\ObservationTableView.xaml.cs">
       <DependentUpon>ObservationTableView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PatientAddView.xaml.cs">
+      <DependentUpon>PatientAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PatientBrowserView.xaml.cs">
       <DependentUpon>PatientBrowserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientDeleteView.xaml.cs">
+      <DependentUpon>PatientDeleteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PatientPictureView.xaml.cs">
       <DependentUpon>PatientPictureView.xaml</DependentUpon>
@@ -236,7 +243,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PatientAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PatientBrowserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientDeleteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
