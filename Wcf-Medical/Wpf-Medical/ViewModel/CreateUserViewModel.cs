@@ -7,6 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.Diagnostics;
 using System.ComponentModel;
+using Microsoft.Win32;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace Wpf_Medical.ViewModel
 {
@@ -17,6 +20,7 @@ namespace Wpf_Medical.ViewModel
 
         #region Commandes
         private ICommand _createCommand;
+        private ICommand _imageCommand;
         #endregion
 
         private string _name;
@@ -26,6 +30,9 @@ namespace Wpf_Medical.ViewModel
         private string _confirmPassword;
         private string _role;
         private List<string> _availableRoleList;
+        private string _imagepath;
+        private ImageSource _imagesrc;
+        private byte[] _imagebyte;
 
         private string _waitingMessage;
 
@@ -33,6 +40,12 @@ namespace Wpf_Medical.ViewModel
         {
             get { return _createCommand; }
             set { _createCommand = value; }
+        }
+
+        public ICommand ImageCommand
+        {
+            get { return _imageCommand; }
+            set { _imageCommand = value; }
         }
 
         public string Name
@@ -119,6 +132,38 @@ namespace Wpf_Medical.ViewModel
             set { _availableRoleList = value; }
         }
 
+        public string Imagepath
+        {
+            get { return _imagepath; }
+            set
+            {
+                if (_imagepath != value)
+                {
+                    _imagepath = value;
+                    OnPropertyChanged("Imagepath");
+                }
+            }
+        }
+
+        public ImageSource Imagesrc
+        {
+            get { return _imagesrc; }
+            set
+            {
+                if (_imagesrc != value)
+                {
+                    _imagesrc = value;
+                    OnPropertyChanged("Imagesrc");
+                }
+            }
+        }
+
+        public byte[] Imagebyte
+        {
+            get { return _imagebyte; }
+            set { _imagebyte = value; }
+        }
+
         public string WaitingMessage
         {
             get { return _waitingMessage; }
@@ -149,6 +194,7 @@ namespace Wpf_Medical.ViewModel
             _linkedView = lkView;
 
             _createCommand = new RelayCommand(param => CreateAccount(), param => IsValidForm());
+            _imageCommand = new RelayCommand(param => SelectImage(), param => true);
 
             _name = "";
             _firstname = "";
@@ -165,6 +211,8 @@ namespace Wpf_Medical.ViewModel
             _role = "Chirurgien";
 
             _iscreatingaccount = false;
+            _imagepath = "";
+            _imagesrc = null;
             _waitingMessage = "";
         }
 
@@ -203,7 +251,7 @@ namespace Wpf_Medical.ViewModel
             newUser.Name = _name;
             newUser.Firstname = _firstname;
             newUser.Connected = false;
-            newUser.Picture = null;
+            newUser.Picture = _imagebyte;
             newUser.Login = _login;
             newUser.Pwd = _password;
             newUser.Role = _role;
@@ -265,5 +313,25 @@ namespace Wpf_Medical.ViewModel
             worker.RunWorkerAsync();
             WaitingMessage = "Création du compte";
         }
+
+        private void SelectImage()
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Images Files (*.jpg)|*.jpg";
+            ///
+            // Peut-etre informer l'utilisateur que les images ne doivent pas depasser 128*128
+            ///
+            
+            openFileDialog1.FileOk += new CancelEventHandler((object s, CancelEventArgs e) =>
+            {
+                Imagepath = openFileDialog1.FileName;
+                BitmapImage bitimg = new BitmapImage(new Uri(Imagepath));
+                Imagesrc = bitimg;
+                ByteArrayConverter cv = new ByteArrayConverter();
+                _imagebyte = (byte[]) cv.ConvertBack(bitimg, null, null, null);
+            });
+            openFileDialog1.ShowDialog();
+        }
+
     }
 }
