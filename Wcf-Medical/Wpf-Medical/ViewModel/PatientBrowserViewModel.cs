@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Wpf_Medical.ViewModel
 {
@@ -15,13 +17,49 @@ namespace Wpf_Medical.ViewModel
         private Page _linkedView = null;
         private NavigationService _ns = null;
 
-        private List<ServicePatient.Patient> _listPatient;
+        /// <summary>
+        ///  La liste des patients obtenue via le webservice
+        /// </summary>
+        private ObservableCollection<ServicePatient.Patient> _listPatient;
 
-        #region Commandes
-        public ICommand ClickCommand { get; set; }
-        #endregion
+        /// <summary>
+        /// Afin d'activer ou non les boutons de creation/suppression on recupere 
+        /// le booleen de droits de l'utilisateur actuel dans le systeme de session 
+        /// represente par la classe singleton NavigationService
+        /// Au cas ou une faille apparaitrait les boutons sont desactives de base
+        /// </summary>
+        private Visibility _isAvailableRW = Visibility.Hidden;
 
-        public List<ServicePatient.Patient> ListPatient
+        public Visibility IsAvailableRW
+        {
+            get { return _isAvailableRW; }
+            set
+            {
+                if (_isAvailableRW != value)
+                {
+                    OnPropertyChanged("IsAvailableRW");
+                }
+                _isAvailableRW = value; }
+        }
+
+        private ICommand _createObservationCommand;
+
+        private ICommand _imageCommand;
+
+        public ICommand ImageCommand
+        {
+            get { return _imageCommand; }
+            set { _imageCommand = value; }
+        }
+
+        public ICommand CreateObservationCommand
+        {
+            get { return _createObservationCommand; }
+            set { _createObservationCommand = value; }
+        }
+
+
+        public ObservableCollection<ServicePatient.Patient> ListPatient
         {
             get { return _listPatient; }
             set { _listPatient = value; }
@@ -34,9 +72,21 @@ namespace Wpf_Medical.ViewModel
         {
             _linkedView = lkView;
 
-            ClickCommand = new RelayCommand(param => Click(), param => true);
+            _imageCommand = new RelayCommand(param => ImageAccess(param), param => true);
 
-            _listPatient = new List<ServicePatient.Patient>();
+            _createObservationCommand = new RelayCommand(param => CreateObservationClick(), param => true);
+
+
+            /// Definit si les bouton de creation/suppression est disponible ou non
+            if (NavigationMessenger.GetInstance().IsRWAccount) {
+                IsAvailableRW = Visibility.Visible;
+            }
+            else {
+                IsAvailableRW = Visibility.Hidden;
+            }
+            
+
+            _listPatient = new ObservableCollection<ServicePatient.Patient>();
 
             BackgroundWorker worker = new BackgroundWorker();
 
@@ -64,7 +114,17 @@ namespace Wpf_Medical.ViewModel
                 }
                 else
                 {
-                    Debug.WriteLine("OK");
+                    ServicePatient.Patient[] res = e.Result as ServicePatient.Patient[];
+                    if (res != null)
+                    {
+                        foreach (ServicePatient.Patient item in res)
+                        {
+                            _listPatient.Add(item);
+                        }
+                    }
+                    else {
+                        Debug.WriteLine("LISTE DES PATIENTS NON RECUPERABLE");
+                    }
                 }
             });
 
@@ -75,9 +135,22 @@ namespace Wpf_Medical.ViewModel
         /// <summary>
         /// réponse à la commande click
         /// </summary>
-        private void Click()
+        private void CreateObservationClick()
         {
 
         }
+
+        private void ImageAccess(object obj)
+        {
+            byte[][] currentObservationImages = obj as byte[][];
+
+            View.PatientPictureView window = new View.PatientPictureView();
+            ViewModel.PatientPictureViewModel vm = new PatientPictureViewModel(window, currentObservationImages);
+            window.DataContext = vm;
+
+            _ns = NavigationService.GetNavigationService(_linkedView);
+            _ns.Navigate(window);
+        }
+
     }
 }
