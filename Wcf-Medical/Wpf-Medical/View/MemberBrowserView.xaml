@@ -9,7 +9,7 @@
 	Title="MemberBrowserView">
     <Page.Resources>
         <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
-        <Style TargetType="Page">
+        <Style TargetType="Grid">
             <Setter Property="Background" Value="Beige" />
         </Style>
 

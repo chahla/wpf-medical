@@ -6,29 +6,50 @@
       xmlns:datavis="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
       xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"        
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="750"
+      d:DesignHeight="750" d:DesignWidth="750"
 	Title="PatientGraphView">
     <Page.Resources>
         <ResourceDictionary Source="Template.xaml" />
     </Page.Resources>
     <Grid>
-        <charting:Chart x:Name="TempChart"
-            Title="Temperatures relevees"
+        <StackPanel Orientation="Vertical">
+            <Button Command="{Binding NavigateToBrowserPatientCommand}" Content="Revenir a la gestion des patients" Width="auto" Height="auto" HorizontalAlignment="Left"/>
+            <charting:Chart x:Name="TempChart" Height="250"
+            Title="Températures relevées"
             Grid.Column="2">
-            <charting:ColumnSeries
+                <charting:ColumnSeries
                 DependentValueBinding="{Binding Path=Value}"
                 IndependentValueBinding="{Binding Path=Key}"
                 ItemsSource="{Binding Data}"
                 TransitionDuration="0">
-                <charting:ColumnSeries.DependentRangeAxis>
-                    <charting:LinearAxis
+                    <charting:ColumnSeries.DependentRangeAxis>
+                        <charting:LinearAxis
                         Orientation="Y"
-                        Minimum="30"
+                        Minimum="35"
                         Maximum="40"
+                        Title="Température"
+                        ShowGridLines="True"/>
+                    </charting:ColumnSeries.DependentRangeAxis>
+                </charting:ColumnSeries>
+            </charting:Chart>
+            <charting:Chart x:Name="HeartChart" Height="250"
+            Title="Coeur"
+            Grid.Column="2">
+                <charting:LineSeries
+                DependentValueBinding="{Binding Path=Value}"
+                IndependentValueBinding="{Binding Path=Key}"
+                ItemsSource="{Binding Dataheart}"
+                TransitionDuration="0">
+                    <charting:LineSeries.DependentRangeAxis>
+                        <charting:LinearAxis
+                        Orientation="Y"
+                        Minimum="-1"
+                        Maximum="1"
                         Title="Grade"
                         ShowGridLines="True"/>
-                </charting:ColumnSeries.DependentRangeAxis>
-            </charting:ColumnSeries>
-        </charting:Chart>
+                    </charting:LineSeries.DependentRangeAxis>
+                </charting:LineSeries>
+            </charting:Chart>
+        </StackPanel>
     </Grid>
 </Page>
