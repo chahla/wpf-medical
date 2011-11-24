@@ -32,7 +32,7 @@
                                 <TextBox Text="{Binding Name, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxName" VerticalAlignment="Top" Width="120" />
                                 <TextBox Text="{Binding Firstname, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxFirstname" VerticalAlignment="Top" Width="120" />
                                 <TextBox Text="{Binding Login, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxLogin" VerticalAlignment="Top" Width="120" />
-                                <PasswordBox Password="{Binding Password, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPassword" VerticalAlignment="Top" Width="120" />
+                                <TextBox Text="{Binding Password, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPassword" VerticalAlignment="Top" Width="120" />
                                 <TextBox Text="{Binding ConfirmPassword, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="textBoxPasswordConfirmation" VerticalAlignment="Top" Width="120" />
                                 <ComboBox ItemsSource="{Binding AvailableRoleList}" SelectedValue="{Binding Role, Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="10,5,10,0" Name="comboBoxFunction" VerticalAlignment="Top" Width="120" />
                                 <Button Content="Parcourir" Command="{Binding ImageCommand}" Margin="10" Height="23" HorizontalAlignment="Center" Name="buttonImage" VerticalAlignment="Center" Width="120" FontSize="14" />                                                                

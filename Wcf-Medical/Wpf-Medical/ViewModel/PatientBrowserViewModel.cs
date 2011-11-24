@@ -114,10 +114,10 @@ namespace Wpf_Medical.ViewModel
 
             _imageCommand = new RelayCommand(param => ImageAccess(param), param => true);
 
-            _createObservationCommand = new RelayCommand(param => NavigateToCreateObservation(param), param => true);
+            _createObservationCommand = new RelayCommand(param => NavigateToCreateObservation(param), param => IsButtonAvailable());
             _addPatientCommand = new RelayCommand(param => ClickAddPatient(), param => true);
             _navigateToHomeCommand = new RelayCommand(param => NavigateToHome(), param => true);
-            _deletePatientCommand = new RelayCommand(param => NavigateToDeletePatient(param), param => IsDeleteButtonAvailable());
+            _deletePatientCommand = new RelayCommand(param => NavigateToDeletePatient(param), param => IsButtonAvailable());
 
             /// Definit si les bouton de creation/suppression est disponible ou non
             if (NavigationMessenger.GetInstance().IsRWAccount) {
@@ -194,7 +194,12 @@ namespace Wpf_Medical.ViewModel
         {
             int? idSelectedPatient = obj as int?;
             if (idSelectedPatient.HasValue) {
-                
+                View.CreateObservationView window = new View.CreateObservationView();
+                ViewModel.CreateObservationViewModel vm = new CreateObservationViewModel(window, idSelectedPatient.Value);
+                window.DataContext = vm;
+
+                _ns = NavigationService.GetNavigationService(_linkedView);
+                _ns.Navigate(window);
             }
         }
 
@@ -202,7 +207,7 @@ namespace Wpf_Medical.ViewModel
         /// Predicat indiquant si le bouton de suppression est active ou non
         /// </summary>
         /// <returns></returns>
-        private bool IsDeleteButtonAvailable()
+        private bool IsButtonAvailable()
         {
             return (SelectedPatient != null);
         }

@@ -28,7 +28,7 @@
             </StackPanel>
             
             <ScrollViewer Height="400" HorizontalAlignment="Left" Margin="10" Name="scrollViewer1" VerticalAlignment="Top" Width="676">
-                <ListBox ItemsSource="{Binding Path=ListImages, Converter={StaticResource byteArrayConverter}}">
+                <ListBox ItemsSource="{Binding Path=ListImages, Converter={StaticResource byteArrayConverter}}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Image Source="{Binding}" Width="200" Height="200"/>

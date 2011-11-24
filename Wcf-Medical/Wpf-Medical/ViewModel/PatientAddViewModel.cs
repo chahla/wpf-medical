@@ -166,9 +166,6 @@ namespace Wpf_Medical.ViewModel
                 }
                 if (res == true)
                 {
-                    /// Juste avant de creer la page de confirmation il faut 
-                    /// enregister les informations dans le NavigationMessenger
-                    //NavigationMessenger.GetInstance().TransitCreatedUser = newPatient;
                     WaitingMessage = "Création réussie";
 
                     View.PatientBrowserView window = new View.PatientBrowserView();

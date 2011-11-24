@@ -12,7 +12,9 @@
         </Style>
     </Page.Resources>
     <StackPanel Orientation="Vertical">
-        <TextBlock Text="Nouvelle observation" HorizontalAlignment="Center"/>
+        <Button Content="Retour à la gestion des patients" Command="{Binding NavigateToHomeCommand}" HorizontalAlignment="Left"/>
+        <TextBlock Text="Nouvelle observation" HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding WaitingMessage}" HorizontalAlignment="Center" Margin="0 10 0 0" Height="28"/>
         <Grid x:Name="globalUI" Margin="0 20 0 0">
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -29,7 +31,7 @@
             <Label Grid.Row="1" Grid.Column="0" Content="Pression artérielle (cmHg) :"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Commentaire :" />
             <Label Grid.Row="3" Grid.Column="0" Content="Prescription :" />
-            <Label Grid.Row="4" Grid.Column="0" Content="Images :" />
+            <Label Grid.Row="4" Grid.Column="0" Content="Images (128x128px max):" />
             
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Weight, Mode=TwoWay}" Width="100" HorizontalAlignment="Left"/>
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding BloodPressure, Mode=TwoWay}" Width="100" HorizontalAlignment="Left"/>
@@ -43,17 +45,42 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding PrescriptionInput, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Margin="0 0 75 0"/>
-                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
-                    <Button Content="Ajouter"/>
-                    <Button Content="Retirer"/>
+                <TextBox Text="{Binding PrescriptionInput, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Margin="0 0 0 0"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Height="30" VerticalAlignment="Top">
+                    <Button Content="Ajouter" Margin="0 0 50 0" Command="{Binding AddToListCommand}" />
+                    <Button Content="Retirer" Command="{Binding RemoveToListCommand}"/>
                 </StackPanel>
 
-                <ListBox Grid.Row="0" Grid.Column="2" ItemsSource="{Binding ArrayPrescription, Mode=TwoWay}">
+                <ListBox Grid.Row="0" Grid.Column="2" SelectedItem="{Binding SelectedEntry}" ItemsSource="{Binding ArrayPrescription}">
                 </ListBox>
             </Grid>
-
+            
+            <Grid Grid.Row="4" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Content="Parcourir" Height="30" Command="{Binding ImageCommand}" VerticalAlignment="Top" Margin="0 0 50 0"/>
+                <Button Grid.Row="0" Grid.Column="1" Content="Retirer" Height="30" VerticalAlignment="Top" Command="{Binding RemoveImageCommand}"/>
+                <ListBox Grid.Row="0" Grid.Column="2" ItemsSource="{Binding ListDisplayedImages}" SelectedItem="{Binding SelectedImage}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}" Width="100" Height="100" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
         </Grid>
+        <Button Content="Créer la nouvelle observation" HorizontalAlignment="Center" Command="{Binding ValidCommand}"/>
     </StackPanel>
 
 </Page>
