@@ -99,6 +99,8 @@
                             
                                 <Separator Height="23" HorizontalAlignment="Left" Margin="10" Name="separator1" VerticalAlignment="Top" Width="378" />
 
+                                <Button Command="{Binding CreateObservationCommand}" CommandParameter="{Binding ElementName=listBoxPatient, Path=SelectedItem.Id}" Content="Ajouter une observation" HorizontalAlignment="Center" Margin="0 0 0 20" Width="auto" Height="40"/>
+                                
                                 <DataGrid x:Name="observationDataGridUI" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=listBoxPatient, Path=SelectedItem.Observations}">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>

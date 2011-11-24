@@ -20,7 +20,7 @@ namespace Wpf_Medical
                 StringBuilder sbuilder = new StringBuilder();
                 foreach (String item in stringArray)
                 {
-                    sbuilder.Append(" " + item + "\n");
+                    sbuilder.Append("-" + item + "\n");
                 }
                 return sbuilder.ToString();
             }

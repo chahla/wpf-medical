@@ -22,15 +22,16 @@
                 <Button Command="{Binding NavigateToBrowserPatientCommand}" Content="Revenir a la gestion des patients" Width="auto" Height="auto" HorizontalAlignment="Left"/>
                 <Label Style="{StaticResource Title}" Content="Images du patient :" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelTitle" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Unicode MS" />
                 <!--propriete du label du dessus Width="355"-->
-                <Label Style="{StaticResource element}" HorizontalContentAlignment="Left" Content="Label" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelPatientname" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />
+                <!--Plus besoin d'afficher le nom du patient en gros en haut-->
+                <!--<Label Style="{StaticResource element}" HorizontalContentAlignment="Left" Content="Label" Height="41" HorizontalAlignment="Center" Margin="10" Name="labelPatientname" VerticalAlignment="Top" FontSize="20" FontFamily="Arial Unicode MS" />-->
                 <!--propriete du label du dessus Width="315"-->
             </StackPanel>
             
-            <ScrollViewer Height="288" HorizontalAlignment="Left" Margin="10" Name="scrollViewer1" VerticalAlignment="Top" Width="676">
+            <ScrollViewer Height="400" HorizontalAlignment="Left" Margin="10" Name="scrollViewer1" VerticalAlignment="Top" Width="676">
                 <ListBox ItemsSource="{Binding Path=ListImages, Converter={StaticResource byteArrayConverter}}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding}" Width="100" Height="100"/>
+                            <Image Source="{Binding}" Width="200" Height="200"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                     <ListBox.ItemsPanel>
@@ -40,8 +41,8 @@
                     </ListBox.ItemsPanel>
                 </ListBox>
             </ScrollViewer>
-            
-            <Button Content="Ajouter une image" Margin="10" Height="41" Name="button1" Width="162" FontSize="16" FontFamily="Arial Unicode MS" />
+            <!--Pas besoin du bouton d'ajout puisqu'il n'y a pas de webservice pour mettre a jour les observations-->
+            <!--<Button Content="Ajouter une image" Margin="10" Height="41" Name="button1" Width="162" FontSize="16" FontFamily="Arial Unicode MS" />-->
         </StackPanel>
     </Grid>
 </Page>

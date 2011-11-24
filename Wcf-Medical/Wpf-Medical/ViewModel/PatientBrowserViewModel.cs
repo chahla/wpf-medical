@@ -114,7 +114,7 @@ namespace Wpf_Medical.ViewModel
 
             _imageCommand = new RelayCommand(param => ImageAccess(param), param => true);
 
-            _createObservationCommand = new RelayCommand(param => CreateObservationClick(), param => true);
+            _createObservationCommand = new RelayCommand(param => NavigateToCreateObservation(param), param => true);
             _addPatientCommand = new RelayCommand(param => ClickAddPatient(), param => true);
             _navigateToHomeCommand = new RelayCommand(param => NavigateToHome(), param => true);
             _deletePatientCommand = new RelayCommand(param => NavigateToDeletePatient(param), param => IsDeleteButtonAvailable());
@@ -174,11 +174,6 @@ namespace Wpf_Medical.ViewModel
 
         }
 
-        private bool IsAllowed()
-        {
-            return true;
-        }
-
         private void ClickAddPatient()
         {
             View.PatientAddView window = new View.PatientAddView();
@@ -195,9 +190,12 @@ namespace Wpf_Medical.ViewModel
         /// <summary>
         /// réponse à la commande click
         /// </summary>
-        private void CreateObservationClick()
+        private void NavigateToCreateObservation(object obj)
         {
-
+            int? idSelectedPatient = obj as int?;
+            if (idSelectedPatient.HasValue) {
+                
+            }
         }
 
         /// <summary>
@@ -229,8 +227,12 @@ namespace Wpf_Medical.ViewModel
 
         private void NavigateToHome()
         {
+            View.HomeView window = new View.HomeView();
+            ViewModel.HomeViewModel vm = new HomeViewModel(window);
+            window.DataContext = vm;
+
             _ns = NavigationService.GetNavigationService(_linkedView);
-            _ns.GoBack();
+            _ns.Navigate(window);
         }
 
         private void ImageAccess(object obj)

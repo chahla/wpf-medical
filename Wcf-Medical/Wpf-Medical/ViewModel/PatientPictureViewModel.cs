@@ -33,14 +33,6 @@ namespace Wpf_Medical.ViewModel
             set { _listImages = value; }
         }
 
-        //private List<Image> _visualList;
-
-        //public List<Image> VisualList
-        //{
-        //    get { return _visualList; }
-        //    set { _visualList = value; }
-        //}
-
         /// <summary>
         /// constructeur
         /// </summary>
@@ -51,25 +43,6 @@ namespace Wpf_Medical.ViewModel
             _navigateToBrowserPatientCommand = new RelayCommand(param => NavigateToBrowserPatient(), param => true);
 
             _listImages = byteArrayImages;
-
-            //_visualList = new List<Image>();
-
-            //if (listImages != null)
-            //{
-            //    List<BitmapImage> result = new List<BitmapImage>();
-
-            //    for (int i = 0; i < listImages.Length; i++)
-            //    {
-            //        MemoryStream memoryStream = new MemoryStream(listImages[i]);
-            //        BitmapImage decodedImage = new BitmapImage();
-            //        decodedImage.BeginInit();
-            //        decodedImage.StreamSource = memoryStream;
-            //        decodedImage.EndInit();
-            //        result.Add(decodedImage);
-            //    }
-            //    _visualList = result;
-            //}
-
         }
 
         /// <summary>

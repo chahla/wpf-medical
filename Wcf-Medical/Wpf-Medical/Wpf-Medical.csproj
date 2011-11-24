@@ -92,6 +92,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModel\CreateObservationViewModel.cs" />
     <Compile Include="ViewModel\CreateUserSuccessViewModel.cs" />
     <Compile Include="ViewModel\CreateUserViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
@@ -104,6 +105,9 @@
     <Compile Include="ViewModel\PatientPictureViewModel.cs" />
     <Compile Include="ViewModel\PictureManager1ViewModel.cs" />
     <Compile Include="ViewModel\PictureManager2ViewModel.cs" />
+    <Compile Include="View\CreateObservationView.xaml.cs">
+      <DependentUpon>CreateObservationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateUserSuccessView.xaml.cs">
       <DependentUpon>CreateUserSuccessView.xaml</DependentUpon>
     </Compile>
@@ -220,6 +224,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateObservationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
