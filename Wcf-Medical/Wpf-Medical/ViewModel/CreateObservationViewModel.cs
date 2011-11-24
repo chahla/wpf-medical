@@ -246,7 +246,6 @@ namespace Wpf_Medical.ViewModel
             if (Int32.TryParse(_bloodPressure, out tmp)) {
                 newObs.BloodPressure = tmp;
             }
-            System.Windows.Controls.AutoCompleteBox a = new AutoCompleteBox();
 
             if (_comment != null) {
                 newObs.Comment = _comment;
