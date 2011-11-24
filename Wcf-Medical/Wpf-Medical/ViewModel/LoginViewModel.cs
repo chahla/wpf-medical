@@ -165,33 +165,11 @@ namespace Wpf_Medical.ViewModel
             BackgroundWorker workerFetchRole = new BackgroundWorker();
             
             ServiceUser.ServiceUserClient userService = new ServiceUser.ServiceUserClient();
-
-            /* pour tester j'avais commenté le userservice et ses utilisations pour qu'il n'y ai qu'un service qui tourne à la fois */
-            ///
-            // SERVICELIVE
-            // CODE MORT
-            ///
-            System.ServiceModel.InstanceContext context = new System.ServiceModel.InstanceContext(new ServiceLiveCallback());
-
-            ServiceLive.ServiceLiveClient liveService = new ServiceLive.ServiceLiveClient(context);
-            ///
-            // SERVICELIVE
-            // CODE MORT
-            ///
             
             worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) => 
             {
                 _ischecking = true;
                 e.Result = userService.Connect(_login, _password);
-                ///
-                // SERVICELIVE
-                // CODE MORT
-                ///
-                liveService.Subscribe();
-                ///
-                // SERVICELIVE
-                // CODE MORT
-                ///
             });
 
             worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>

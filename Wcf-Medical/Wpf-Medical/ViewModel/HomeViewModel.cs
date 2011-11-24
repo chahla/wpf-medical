@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using System.ComponentModel;
 
 namespace Wpf_Medical.ViewModel
 {
@@ -63,6 +64,17 @@ namespace Wpf_Medical.ViewModel
             manageObservationCommand = new RelayCommand(param => ClickObservation(), param => true);
             manageImageCommand = new RelayCommand(param => ClickImage(), param => true);
             _createCommand = new RelayCommand(param => ClickCreate(), param => true);
+
+            BackgroundWorker worker = new BackgroundWorker();
+            System.ServiceModel.InstanceContext context = new System.ServiceModel.InstanceContext(new ServiceLiveCallback());
+
+            ServiceLive.ServiceLiveClient liveService = new ServiceLive.ServiceLiveClient(context);
+
+            worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) => 
+            {
+                liveService.Subscribe();
+            });
+            worker.RunWorkerAsync();
         }
 
         private void ClickUser()

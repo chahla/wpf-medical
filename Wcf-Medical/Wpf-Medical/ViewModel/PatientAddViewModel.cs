@@ -21,7 +21,9 @@ namespace Wpf_Medical.ViewModel
 
         private string _name;
         private string _firstname;
-        private DateTime _birthday;
+        private string _birthday;
+        private string _birthmonth;
+        private string _birthyear;
 
         public ICommand CreateCommand
         {
@@ -57,7 +59,7 @@ namespace Wpf_Medical.ViewModel
             }
         }
 
-        public DateTime Birthday
+        public string Birthday
         {
             get { return _birthday; }
             set
@@ -67,6 +69,32 @@ namespace Wpf_Medical.ViewModel
                     OnPropertyChanged("Birthday");
                 }
                 _birthday = value;
+            }
+        }
+
+        public string Birthmonth
+        {
+            get { return _birthmonth; }
+            set
+            {
+                if (_birthmonth != value)
+                {
+                    OnPropertyChanged("Birthmonth");
+                }
+                _birthmonth = value;
+            }
+        }
+
+        public string Birthyear
+        {
+            get { return _birthyear; }
+            set
+            {
+                if (_birthyear != value)
+                {
+                    OnPropertyChanged("Birthyear");
+                }
+                _birthyear = value;
             }
         }
 
@@ -103,7 +131,9 @@ namespace Wpf_Medical.ViewModel
 
             _name = "";
             _firstname = "";
-            _birthday = new DateTime();
+            _birthday = "";
+            _birthmonth = "";
+            _birthyear = "";
 
             _iscreatingpatient = false;
             _waitingMessage = "";
@@ -114,7 +144,9 @@ namespace Wpf_Medical.ViewModel
             return (
                 _name.Length != 0 &&
                 _firstname.Length != 0 &&
-                _birthday != null &&
+                _birthday.Length != 0 &&
+                _birthmonth.Length != 0 &&
+                _birthyear.Length != 0 &&
                 !_iscreatingpatient
             );
         }
@@ -127,64 +159,72 @@ namespace Wpf_Medical.ViewModel
 
             newPatient.Name = _name;
             newPatient.Firstname = _firstname;
-            newPatient.Birthday = _birthday;
-
-            worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) =>
+            int d = 0;
+            int m = 0;
+            int y = 0;
+            if (int.TryParse(_birthday, out d) && int.TryParse(_birthmonth, out m) && int.TryParse(_birthyear, out y))
             {
-                ServicePatient.ServicePatientClient servicePatient = new ServicePatient.ServicePatientClient();
 
-                Debug.WriteLine("DEBUT");
-                _iscreatingpatient = true;
+                newPatient.Birthday = new DateTime(y, m, d);
 
-                BackgroundWorker bg = s as BackgroundWorker;
-                e.Result = servicePatient.AddPatient(newPatient);
-            });
-
-            // TODO penser a mettre un comportement en fonction des differents cas notamment en cas de fail
-            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>
-            {
-                Debug.WriteLine("FIN");
-                _iscreatingpatient = false;
-                WaitingMessage = "";
-
-                if (e.Cancelled)
+                worker.DoWork += new DoWorkEventHandler((object s, DoWorkEventArgs e) =>
                 {
-                    Debug.WriteLine("CANCELLED");
-                    WaitingMessage = "L'opération a été annulée.";
-                }
-                if (e.Error != null)
-                {
-                    Debug.WriteLine("ERROR");
-                    WaitingMessage = "Erreur lors de la création : " + e.Error.Message;
-                }
-                bool? res = e.Result as bool?;
+                    ServicePatient.ServicePatientClient servicePatient = new ServicePatient.ServicePatientClient();
 
-                if (res == null)
-                {
-                    Debug.WriteLine("ERREUR COTE SERVEUR");
-                    WaitingMessage = "Erreur côté serveur lors de la création. Veuillez recommencer";
-                }
-                if (res == true)
-                {
-                    WaitingMessage = "Création réussie";
+                    Debug.WriteLine("DEBUT");
+                    _iscreatingpatient = true;
 
-                    View.PatientBrowserView window = new View.PatientBrowserView();
-                    ViewModel.PatientBrowserViewModel vm = new PatientBrowserViewModel(window);
-                    window.DataContext = vm;
+                    BackgroundWorker bg = s as BackgroundWorker;
+                    e.Result = servicePatient.AddPatient(newPatient);
+                });
 
-                    _ns = NavigationService.GetNavigationService(_linkedView);
-                    _ns.Navigate(window);
+                // TODO penser a mettre un comportement en fonction des differents cas notamment en cas de fail
+                worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((object s, RunWorkerCompletedEventArgs e) =>
+                {
+                    Debug.WriteLine("FIN");
+                    _iscreatingpatient = false;
                     WaitingMessage = "";
-                }
-                else
-                {
-                    Debug.WriteLine("ECHEC DE LA CREATION");
-                    WaitingMessage = "La création a échoué. Veuillez recommencer.";
-                }
-            });
 
-            worker.RunWorkerAsync();
-            WaitingMessage = "Création du patient";
+                    if (e.Cancelled)
+                    {
+                        Debug.WriteLine("CANCELLED");
+                        WaitingMessage = "L'opération a été annulée.";
+                    }
+                    if (e.Error != null)
+                    {
+                        Debug.WriteLine("ERROR");
+                        WaitingMessage = "Erreur lors de la création : " + e.Error.Message;
+                    }
+                    bool? res = e.Result as bool?;
+
+                    if (res == null)
+                    {
+                        Debug.WriteLine("ERREUR COTE SERVEUR");
+                        WaitingMessage = "Erreur côté serveur lors de la création. Veuillez recommencer";
+                    }
+                    if (res == true)
+                    {
+                        WaitingMessage = "Création réussie";
+
+                        View.PatientBrowserView window = new View.PatientBrowserView();
+                        ViewModel.PatientBrowserViewModel vm = new PatientBrowserViewModel(window);
+                        window.DataContext = vm;
+
+                        _ns = NavigationService.GetNavigationService(_linkedView);
+                        _ns.Navigate(window);
+                        WaitingMessage = "";
+                    }
+                    else
+                    {
+                        Debug.WriteLine("ECHEC DE LA CREATION");
+                        WaitingMessage = "La création a échoué. Veuillez recommencer.";
+                    }
+                });
+
+                worker.RunWorkerAsync();
+                WaitingMessage = "Création du patient";
+            }
+            WaitingMessage = "Veuillez indiquer des dates valides (ex : 26 07 1989)";
         }
     }
 }
