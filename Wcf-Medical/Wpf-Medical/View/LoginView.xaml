@@ -27,7 +27,7 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label Style="{StaticResource Title}" Content="Bienvenue dans le service de gestion de l'hôpital" Height="42" HorizontalAlignment="Center" Margin="40" Name="title" VerticalAlignment="Top" IsEnabled="True" FontFamily="Arial Unicode MS" FontSize="20" Width="469" />
+            <Label Style="{StaticResource Title}" Content="Bienvenue dans le service de gestion de l'hôpital" Height="42" HorizontalAlignment="Center" Margin="40" Name="title" VerticalAlignment="Top" IsEnabled="True" FontFamily="Arial Unicode MS" FontSize="20" Width="Auto" />
 
             <GroupBox Header="Connexion" Height="233" HorizontalAlignment="Center" Name="groupBoxConnection" VerticalAlignment="Top" Width="448">
                 <Grid Width="431">

@@ -70,7 +70,6 @@ namespace Wpf_Medical.ViewModel
             set { _navigateToHomeCommand = value; }
         }
 
-
         public ICommand ImageCommand
         {
             get { return _imageCommand; }
@@ -91,7 +90,6 @@ namespace Wpf_Medical.ViewModel
             get { return _deletePatientCommand; }
             set { _deletePatientCommand = value; }
         }
-
 
         public ObservableCollection<ServicePatient.Patient> ListPatient
         {
@@ -144,15 +142,12 @@ namespace Wpf_Medical.ViewModel
                 Debug.WriteLine("FIN");
                 if (e.Cancelled)
                 {
-                    Debug.WriteLine("CANCEL");
                 }
                 if (e.Error != null)
                 {
-                    Debug.WriteLine("ERREUR");
                 }
                 if (e.Result == null)
                 {
-                    Debug.WriteLine("NULL");
                 }
                 else
                 {
@@ -165,7 +160,6 @@ namespace Wpf_Medical.ViewModel
                         }
                     }
                     else {
-                        Debug.WriteLine("LISTE DES PATIENTS NON RECUPERABLE");
                     }
                 }
             });

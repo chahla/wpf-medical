@@ -246,6 +246,7 @@ namespace Wpf_Medical.ViewModel
             if (Int32.TryParse(_bloodPressure, out tmp)) {
                 newObs.BloodPressure = tmp;
             }
+            System.Windows.Controls.AutoCompleteBox a = new AutoCompleteBox();
 
             if (_comment != null) {
                 newObs.Comment = _comment;
@@ -296,10 +297,14 @@ namespace Wpf_Medical.ViewModel
                     WaitingMessage = "Erreur lors de la création : " + e.Error.Message;
                 }
                 bool? resWebService = e.Result as bool?;
-                if (resWebService.HasValue)
+                if (resWebService.HasValue && resWebService.Value)
                 {
+                    View.PatientBrowserView window = new View.PatientBrowserView();
+                    ViewModel.PatientBrowserViewModel vm = new PatientBrowserViewModel(window);
+                    window.DataContext = vm;
+
                     _ns = NavigationService.GetNavigationService(_linkedView);
-                    _ns.GoBack();
+                    _ns.Navigate(window);
                 }
                 else {
                     WaitingMessage = "Erreur côté serveur lors de la création. Veuillez recommencer";
