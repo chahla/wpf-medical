@@ -7,9 +7,7 @@
       d:DesignHeight="600" d:DesignWidth="700"
 	Title="CreateObservationView">
     <Page.Resources>
-        <Style TargetType="Label">
-            <Setter Property="HorizontalAlignment" Value="Right" />
-        </Style>
+        <ResourceDictionary Source="Template.xaml" />
     </Page.Resources>
     <StackPanel Orientation="Vertical">
         <Button Content="Retour à la gestion des patients" Command="{Binding NavigateToHomeCommand}" HorizontalAlignment="Left"/>
