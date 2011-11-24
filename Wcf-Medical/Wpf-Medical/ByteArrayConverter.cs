@@ -37,20 +37,21 @@ namespace Wpf_Medical
         /// </summary>
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            //Stream stream = imageSource.StreamSource;
+            BitmapImage image = value as BitmapImage;
+            //Stream stream = image.StreamSource;
+            Stream stream = File.OpenRead(image.UriSource.AbsolutePath);
             //stream.Position = 0;
-            //Byte[] buffer = null;
-            //if (stream != null && stream.Length > 0)
-            //{
-            //    using (BinaryReader br = new BinaryReader(stream))
-            //    {
-            //        buffer = br.ReadBytes((Int32)stream.Length);
-            //    }
-            //}
+            Byte[] buffer = null;
+            if (stream != null && stream.Length > 0)
+            {
+                using (BinaryReader br = new BinaryReader(stream))
+                {
+                    buffer = br.ReadBytes((Int32)stream.Length);
+                }
+            }
+            stream.Close();
+            return buffer;
 
-            //return buffer;
-
-            throw new NotImplementedException();
         }
     }
 }

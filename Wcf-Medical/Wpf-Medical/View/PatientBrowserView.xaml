@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:projlocal="clr-namespace:Wpf_Medical"
-      mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="750"
+      mc:Ignorable="d"
+       d:DesignWidth="750" d:DesignHeight="700"
 	Title="PatientBrowserView">
     <Page.Resources>
         <DropShadowEffect x:Key="dropShadow" Color="Olive" BlurRadius="15" Direction="315" />
@@ -75,11 +75,11 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
-                    <GroupBox Header="Gestion Patient" Height="523" Margin="0,15,0,0" HorizontalAlignment="Left" Name="groupBoxPatientmanager" VerticalAlignment="Top" Width="402">
+                    <GroupBox Header="Gestion Patient" MinHeight="523" Margin="0,15,0,0" HorizontalAlignment="Left" Name="groupBoxPatientmanager" VerticalAlignment="Top" Width="530" Height="523">
                         <Grid>
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-
+                                    
                                     <StackPanel Orientation="Vertical" Margin="10">
                                         <Label Style="{StaticResource element}" Content="Nom" Height="28" HorizontalAlignment="Left"  Name="labelName" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
                                         <Label Style="{StaticResource element}" Content="Prénom" Height="28" HorizontalAlignment="Left"  Name="labelSurname" VerticalAlignment="Top" FontSize="14" FontFamily="Arial Unicode MS" />
@@ -99,34 +99,37 @@
                             
                                 <Separator Height="23" HorizontalAlignment="Left" Margin="10" Name="separator1" VerticalAlignment="Top" Width="378" />
 
-                                <Button Command="{Binding CreateObservationCommand}" CommandParameter="{Binding ElementName=listBoxPatient, Path=SelectedItem.Id}" Content="Ajouter une observation" HorizontalAlignment="Center" Margin="0 0 0 20" Width="auto" Height="40"/>
-                                
-                                <DataGrid x:Name="observationDataGridUI" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=listBoxPatient, Path=SelectedItem.Observations}">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
-                                        <DataGridTextColumn Header="Poids (en Kg)" Binding="{Binding Weight}"  Width="Auto"/>
-                                        <DataGridTextColumn Header="Pression artérielle (en cmHg)" Binding="{Binding BloodPressure}" Width="Auto"/>
-                                    </DataGrid.Columns>
-                                    <DataGrid.RowDetailsTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Vertical">
-                                                <TextBlock Text="{Binding Comment}" Height="100" Width="200"/>
-                                                <TextBlock Text="{Binding Prescription, Converter={StaticResource stringArrayConverter}}" Height="100" Width="200"/>
-                                                <!--Il est 1h05 du matin et la ligne du dessous est la chose dont je sois le plus fier depuis 
-                                                que j'ai touve comment mixer le mvvm et le NavigationWindow -laurent garcin, 2011- -->
-                                                <Button Content="Voir/ajouter les images (Radios/Graphiques)" 
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="350">
+                                    <StackPanel>
+                                        <DataGrid x:Name="observationDataGridUI" HeadersVisibility="Column" Width="510" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=listBoxPatient, Path=SelectedItem.Observations}">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"/>
+                                                <DataGridTextColumn Header="Poids (en Kg)" Binding="{Binding Weight}"  Width="Auto"/>
+                                                <DataGridTextColumn Header="Pression artérielle (en cmHg)  " Binding="{Binding BloodPressure}" Width="Auto"/>
+                                            </DataGrid.Columns>
+                                            <DataGrid.RowDetailsTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Width="400" Orientation="Vertical">
+                                                        <TextBlock Text="{Binding Comment}" TextWrapping="Wrap" />
+                                                        <TextBlock Text="{Binding Prescription, Converter={StaticResource stringArrayConverter}}" TextWrapping="Wrap" />
+                                                        <!--Il est 1h05 du matin et la ligne du dessous est la chose dont je sois le plus fier depuis que j'ai touve comment mixer le mvvm et le NavigationWindow -laurent garcin, 2011- -->
+                                                        <Button Content="Voir/ajouter les images (Radios/Graphiques)" 
                                                         Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.ImageCommand}" 
                                                         CommandParameter="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Parent.DataContext.Pictures}" 
-                                                        Height="34" 
+                                                        Height="44" 
                                                         HorizontalAlignment="Center" 
                                                         Name="buttonViewimage" 
-                                                        Width="258" 
+                                                        Width="288" 
                                                         FontFamily="Arial Unicode MS" 
-                                                        FontSize="14" />
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGrid.RowDetailsTemplate>
-                                </DataGrid>
+                                                        FontSize="14"
+                                                        Margin="10"
+                                                        />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGrid.RowDetailsTemplate>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </ScrollViewer>
                             
                             </StackPanel>
                         </Grid>
