@@ -40,6 +40,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -101,6 +105,7 @@
     <Compile Include="ViewModel\PatientAddViewModel.cs" />
     <Compile Include="ViewModel\PatientBrowserViewModel.cs" />
     <Compile Include="ViewModel\PatientDeleteViewModel.cs" />
+    <Compile Include="ViewModel\PatientGraphViewModel.cs" />
     <Compile Include="ViewModel\PatientPictureViewModel.cs" />
     <Compile Include="ViewModel\PictureManager1ViewModel.cs" />
     <Compile Include="ViewModel\PictureManager2ViewModel.cs" />
@@ -130,6 +135,9 @@
     </Compile>
     <Compile Include="View\PatientDeleteView.xaml.cs">
       <DependentUpon>PatientDeleteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientGraphView.xaml.cs">
+      <DependentUpon>PatientGraphView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PatientPictureView.xaml.cs">
       <DependentUpon>PatientPictureView.xaml</DependentUpon>
@@ -228,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CreateUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientGraphView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -344,6 +356,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\System.Windows.Controls.DataVisualization.Toolkit.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

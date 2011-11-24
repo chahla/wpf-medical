@@ -42,6 +42,7 @@
             </ScrollViewer>
             
             <Button Content="Ajouter une image" Margin="10" Height="41" Name="button1" Width="162" FontSize="16" FontFamily="Arial Unicode MS" />
+            <Button Content="Voir les graphiques" Margin="10" Height="41" Name="button2" Width="162" FontSize="16" FontFamily="Arial Unicode MS" Command="{Binding GraphCommand}" />
         </StackPanel>
     </Grid>
 </Page>
