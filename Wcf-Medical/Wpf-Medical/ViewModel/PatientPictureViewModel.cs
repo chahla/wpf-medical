@@ -17,11 +17,18 @@ namespace Wpf_Medical.ViewModel
 
         #region Commandes
         private ICommand _navigateToBrowserPatientCommand;
+        private ICommand _graphCommand;
 
         public ICommand NavigateToBrowserPatientCommand
         {
             get { return _navigateToBrowserPatientCommand; }
             set { _navigateToBrowserPatientCommand = value; }
+        }
+
+        public ICommand GraphCommand
+        {
+            get { return _graphCommand; }
+            set { _graphCommand = value; }
         }
         #endregion
 
@@ -41,6 +48,7 @@ namespace Wpf_Medical.ViewModel
             _linkedView = lkView;
 
             _navigateToBrowserPatientCommand = new RelayCommand(param => NavigateToBrowserPatient(), param => true);
+            _graphCommand = new RelayCommand(param => NavigateToGraph(), param => true);
 
             _listImages = byteArrayImages;
         }
@@ -52,6 +60,17 @@ namespace Wpf_Medical.ViewModel
         {
             _ns = NavigationService.GetNavigationService(_linkedView);
             _ns.GoBack();
+        }
+
+
+        private void NavigateToGraph()
+        {
+            View.PatientGraphView window = new View.PatientGraphView();
+            ViewModel.PatientGraphViewModel vm = new PatientGraphViewModel(window);
+            window.DataContext = vm;
+
+            _ns = NavigationService.GetNavigationService(_linkedView);
+            _ns.Navigate(window);
         }
     }
 }

@@ -171,9 +171,9 @@ namespace Wpf_Medical.ViewModel
             // SERVICELIVE
             // CODE MORT
             ///
-            /*System.ServiceModel.InstanceContext context = new System.ServiceModel.InstanceContext(new MyCallback());
+            System.ServiceModel.InstanceContext context = new System.ServiceModel.InstanceContext(new ServiceLiveCallback());
 
-            ServiceLive.ServiceLiveClient liveService = new ServiceLive.ServiceLiveClient(context);*/
+            ServiceLive.ServiceLiveClient liveService = new ServiceLive.ServiceLiveClient(context);
             ///
             // SERVICELIVE
             // CODE MORT
@@ -187,7 +187,7 @@ namespace Wpf_Medical.ViewModel
                 // SERVICELIVE
                 // CODE MORT
                 ///
-                /*liveService.Subscribe();*/
+                liveService.Subscribe();
                 ///
                 // SERVICELIVE
                 // CODE MORT
